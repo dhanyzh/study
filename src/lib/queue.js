@@ -6,7 +6,6 @@
  */
 
 let bullAvailable = null; // null = untested, true/false after test
-let Bull = null;
 
 async function testRedis() {
   if (bullAvailable !== null) return bullAvailable;
@@ -112,21 +111,13 @@ function makeFakeQueue(name) {
   return q;
 }
 
-async function makeBullQueue(name, defaultJobOptions) {
-  if (cachedQueues.queues[name]) return cachedQueues.queues[name];
-  if (!Bull) {
-    const mod = await import('bull');
-    Bull = mod.default || mod;
-  }
-  const q = new Bull(name, { redis: connection, defaultJobOptions });
-  cachedQueues.queues[name] = q;
-  return q;
-}
-
-async function makeQueue(name, defaultJobOptions) {
+async function makeQueue(name, _defaultJobOptions) {
   const redis = await testRedis();
   if (redis) {
-    return makeBullQueue(name, defaultJobOptions);
+    // Bull/BullMQ removed — they use child_process.fork with server-relative
+    // imports that Turbopack / Vercel cannot bundle. If Redis-backed queues
+    // are needed in the future, consider bullmq with a custom webpack config.
+    console.warn(`[Queue] Redis is available but Bull is not bundled. Using FakeQueue for '${name}'.`);
   }
   return makeFakeQueue(name);
 }

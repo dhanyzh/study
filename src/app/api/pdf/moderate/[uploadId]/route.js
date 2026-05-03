@@ -3,8 +3,7 @@ import dbConnect from '@/lib/db';
 import { authenticateRequest } from '@/lib/auth';
 import PdfProposal from '@/models/PdfProposal';
 import PdfRevision from '@/models/PdfRevision';
-import { enqueueRoutingJob, connection } from '@/lib/queue';
-import { QueueEvents } from 'bullmq';
+import { enqueueRoutingJob } from '@/lib/queue';
 
 export async function POST(request, { params }) {
   try {
@@ -57,16 +56,11 @@ export async function POST(request, { params }) {
       subject: 'General',
     });
 
-    // Best effort: wait for routing completion to make the editor responsive.
-    const routingEvents = new QueueEvents('pdf-routing', { connection });
+    // Wait for routing completion (FakeJob.finished() resolves when done).
     try {
-      await graphJob.waitUntilFinished(routingEvents);
-    } finally {
-      try {
-        await routingEvents.close();
-      } catch {
-        // ignore
-      }
+      await graphJob.finished();
+    } catch {
+      // best-effort — don't block the response
     }
 
     const proposals = await PdfProposal.find({ pdfUploadId: uploadId, userId: user.userId })

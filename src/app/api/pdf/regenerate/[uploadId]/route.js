@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import { authenticateRequest } from '@/lib/auth';
-import { enqueueQuestionGenerationJob, enqueueRoutingJob, connection } from '@/lib/queue';
-import { QueueEvents } from 'bullmq';
+import { enqueueQuestionGenerationJob, enqueueRoutingJob } from '@/lib/queue';
 
 export async function POST(request, { params }) {
   try {
@@ -30,15 +29,11 @@ export async function POST(request, { params }) {
       targetCount,
     });
 
-    const qEvents = new QueueEvents('pdf-question-generation', { connection });
+    // Wait for question generation (FakeJob.finished() resolves when done).
     try {
-      await qJob.waitUntilFinished(qEvents);
-    } finally {
-      try {
-        await qEvents.close();
-      } catch {
-        // ignore
-      }
+      await qJob.finished();
+    } catch {
+      // best-effort
     }
 
     const routingJob = await enqueueRoutingJob({
@@ -47,15 +42,11 @@ export async function POST(request, { params }) {
       subject: 'General',
     });
 
-    const routingEvents = new QueueEvents('pdf-routing', { connection });
+    // Wait for routing completion.
     try {
-      await routingJob.waitUntilFinished(routingEvents);
-    } finally {
-      try {
-        await routingEvents.close();
-      } catch {
-        // ignore
-      }
+      await routingJob.finished();
+    } catch {
+      // best-effort
     }
 
     return NextResponse.json({ ok: true, qJobId: qJob.id, routingJobId: routingJob.id });

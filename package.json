@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -12,8 +12,6 @@
     "@google/generative-ai": "^0.24.1",
     "@monaco-editor/react": "^4.7.0",
     "bcryptjs": "^3.0.3",
-    "bull": "^4.16.5",
-    "bullmq": "^5.76.3",
     "framer-motion": "^12.38.0",
     "jsonwebtoken": "^9.0.3",
     "katex": "^0.16.45",

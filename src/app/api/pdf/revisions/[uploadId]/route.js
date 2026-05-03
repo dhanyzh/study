@@ -3,8 +3,7 @@ import dbConnect from '@/lib/db';
 import { authenticateRequest } from '@/lib/auth';
 import PdfLearningGraph from '@/models/PdfLearningGraph';
 import PdfRevision from '@/models/PdfRevision';
-import { enqueueRoutingJob, connection } from '@/lib/queue';
-import { QueueEvents } from 'bullmq';
+import { enqueueRoutingJob } from '@/lib/queue';
 
 export async function POST(request, { params }) {
   try {
@@ -43,15 +42,11 @@ export async function POST(request, { params }) {
       subject: 'General',
     });
 
-    const routingEvents = new QueueEvents('pdf-routing', { connection });
+    // Wait for routing completion (FakeJob.finished() resolves when done).
     try {
-      await routingJob.waitUntilFinished(routingEvents);
-    } finally {
-      try {
-        await routingEvents.close();
-      } catch {
-        // ignore
-      }
+      await routingJob.finished();
+    } catch {
+      // best-effort — don't block the response
     }
 
     return NextResponse.json({ ok: true });
