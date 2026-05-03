@@ -1,0 +1,316 @@
+
+
+--- PAGE 1 ---
+
+
+
+--- PAGE 2 ---
+
+MODULE 1  Introduction to Materials Chemistry for  Computing Systems
+
+--- PAGE 3 ---
+
+Overview of Materials Chemistry  Introduction: Why Materials Matter in Computing  Suppose you are designing a bridge. You would never use rubber as  pillars or paper as cables. Each part requires a material chosen for  a specific purpose. In the same way, electronic devices such as  laptops, servers, and smartphones depend heavily on carefully  selected materials to perform reliably.  Computers are not just lines of code. Beneath every program lies  hardware built from materials whose behavior is governed by  chemistry. Understanding these materials helps engineers design  faster, smaller, and more efficient computing systems. This branch  of study is known as   Materials Chemistry
+
+--- PAGE 4 ---
+
+Materials Chemistry   –   Detailed  Overview  Materials chemistry is an interdisciplinary field  that integrates principles of chemistry, physics,  and engineering to study and develop materials  with tailored properties for technological  applications. In computing systems, materials  chemistry primarily focuses on understanding  how the atomic composition, chemical bonding,  and internal structure of materials influence their  behavior in electronic devices.
+
+--- PAGE 5 ---
+
+What Is Material Chemistry?  Materials Chemistry is the study of how the internal structure of a material - how atoms and molecules are  arranged and bonded - determines its physical, chemical, and electrical properties. For example, two materials  may look similar but behave very differently because their atomic arrangements are different. By modifying  composition or structure, scientists can tailor materials to meet specific technological needs.  At the atomic level, materials are made up of atoms arranged in specific patterns and bonded through  different types of chemical interactions. These atomic arrangements determine how electrons move, how  heat is transferred, how magnetic fields interact, and how light is absorbed or emitted. Therefore, materials  chemistry provides the scientific foundation for selecting and modifying materials used in computing  hardware.  Simple classroom example:  A smartphone screen feels smooth and resists scratches because of chemically strengthened glass, while  the phone casing may use polymers or metals for durability and weight control
+
+--- PAGE 6 ---
+
+Role of Atomic Composition, Bonding, and Structure in  Computing Materials  Atomic composition   determines the number of electrons, particularly valence electrons, available for bonding and  conduction. For example, silicon has four valence electrons, allowing it to form stable covalent bonds while still  enabling controlled electrical conductivity when doped. In contrast, metals such as copper have loosely held  electrons, making them excellent conductors.  Chemical bonding   plays a crucial role in defining electrical behavior. Metallic bonding allows free movement of  electrons, resulting in high electrical conductivity. Covalent bonding, commonly seen in semiconductors, restricts  electron movement but allows conductivity to be controlled by temperature and impurities. Ionic bonding strongly  binds electrons, resulting in insulating behavior. Thus, the type and strength of bonding directly influence how a  material responds to electrical and thermal energy.  Structure,   particularly whether a material is crystalline or amorphous, further affects material properties. In crystalline  materials, atoms are arranged in a regular, repeating pattern, which allows predictable electron motion and consistent  electrical performance. Single - crystal silicon is widely used in microchips for this reason. Amorphous materials lack  long - range order and are commonly used in thin - film transistors and display technologies, where flexibility and ease of  fabrication are important
+
+--- PAGE 7 ---
+
+Why Is Materials Chemistry Important for  Computer Engineers?
+
+--- PAGE 8 ---
+
+•   Computer science engineers mainly work with software, but every algorithm ultimately runs on  hardware made of physical materials. The performance of processors, memory devices, and storage  units depends strongly on material properties  •   Consider data storage. Hard disk drives store information using magnetic materials. Solid - state drives  depend on semiconductor materials. Even cooling systems rely on materials with good thermal  conductivity.  •   One of the primary objectives of materials chemistry is to understand structure – property relationships.  This involves analyzing how changes in atomic arrangement, bonding, or composition influence  material behavior. Even minor structural changes can significantly affect electrical conductivity,  mechanical strength, or thermal stability.  Knowing materials chemistry allows engineers to:  o   Understand hardware limitations  o   Improve device performance and efficiency  o   Adapt to emerging technologies
+
+--- PAGE 9 ---
+
+Classification of Materials Used in  Computing Systems
+
+--- PAGE 10 ---
+
+Conductors   are materials that allow electric current to flow easily due to the presence of a  large number of free or mobile electrons. In metals, the outer (valence) electrons are loosely  bound to the nucleus and can move freely throughout the crystal lattice when an electric field is  applied. This free movement of electrons is responsible for the high electrical conductivity of  Metals.  Applications in Computing Systems  In computing systems, conductors are essential wherever unrestricted flow of electric  current is required.  • Electrical wiring and cables are made of copper or aluminum to transmit power and  signals with minimal loss.  • Interconnects inside integrated circuits (ICs) use thin metallic lines to connect  millions or billions of transistors on a single chip.  • Printed Circuit Boards (PCBs) use copper tracks to electrically connect components  such as resistors, capacitors, and microchips. Examples include  • Copper (Cu)   –   widely used due to high conductivity and good mechanical strength  • Aluminum (Al)   –   lightweight and cost - effective conductor  • Silver (Ag)   –   highest electrical conductivity among metals
+
+--- PAGE 11 ---
+
+Semiconductors   are materials whose electrical conductivity lies between that of conductors  and insulators. Unlike conductors, they do not allow free flow of electrons under all conditions,  and unlike insulators, they are not completely resistant to electron movement. The most  important characteristic of semiconductors is that their electrical conductivity can be  precisely and intentionally controlled, which makes them the most critical materials in  modern computing systems.  Common Semiconductors  •   Silicon (Si)   is the most widely used semiconductor because it is abundant, inexpensive,  thermally stable, and capable of forming a high - quality oxide layer ( SiO ₂ ), which is  essential for integrated circuit fabrication.  •   Germanium (Ge)   was used in early semiconductor devices due to its high charge carrier  mobility, but its poor thermal stability limits its modern applications.  •   Gallium Arsenide (GaAs)   is a compound semiconductor with higher electron mobility  than silicon, making it suitable for high - speed and high - frequency applications,  especially in communication systems.
+
+--- PAGE 12 ---
+
+Insulators   are materials that strongly resist the flow of electric current because their  electrons are tightly bound to the atoms and are not free to move under normal operating  conditions. In these materials, the energy required to free an electron is very high, so even when  an electric field is applied, electron movement is negligible. As a result, insulators exhibit very  low electrical conductivity.  Examples  • Silicon dioxide ( SiO ₂) is the most important insulating material in electronics and is  extensively used as a gate oxide and dielectric layer in semiconductor devices.  • Glass is commonly used in display panels and as an insulating substrate.  • Ceramics provide excellent electrical insulation along with high mechanical strength  and heat resistance.  • Polymers are lightweight insulating materials widely used in cable insulation and  protective coatings
+
+--- PAGE 13 ---
+
+Key Classes of Materials in Computing  Materials used in computing systems can be broadly categorized into metals, ceramics,  polymers, and composites. However, three specialized categories are especially important in  modern computing applications.  o   Electronic Materials  o   Magnetic Materials  o   Nanomaterials
+
+--- PAGE 14 ---
+
+Electronic Materials  Electronic materials are materials whose electrical conductivity can be controlled. This controllability  makes them essential for devices like transistors and integrated circuits.  Think of electricity as water flowing through a pipe. Conductors are wide open pipes. Insulators block the  flow completely. Semiconductors act like adjustable valves, allowing precise control of flow.  This controlled behavior enables logic operations in computer chips.  Examples of Electronic Materials:  Silicon (Si): The most widely used semiconductor in the electronics industry. It forms the base of  microprocessors, memory chips, and integrated circuits.  Germanium (Ge): Used in early electronic devices and still important in optical and high - speed electronic  applications.  Silicon Carbide ( SiC ): Suitable for high - temperature and high - power applications such as electric vehicles  and power converters.
+
+--- PAGE 15 ---
+
+MAGNETIC MATERIALS  Magnetic materials are used in computing systems for data storage and memory applications.  These materials can retain magnetic information due to the presence of magnetic domains, which can  be oriented in different directions to represent binary data (0 and 1).  Magnetic materials respond differently when exposed to a magnetic field. This property is crucial in data  storage technologies.  People react differently to music. Some rush toward it, some respond mildly, and others avoid it. Materials  behave similarly in magnetic fields.  Types of Magnetic Behavior:  Ferromagnetic materials : Strongly attracted to magnets (used in hard disks)  Paramagnetic materials : Weakly attracted  Diamagnetic materials : Slightly repelled  In hard disk drives, information is stored by changing the orientation of tiny magnetic regions on the disk  surface.
+
+--- PAGE 16 ---
+
+Nanomaterials  Nanomaterials are materials with structural features at the nanometer scale (1 – 100 nm). At this scale,  materials exhibit unique electrical, optical, and mechanical properties that differ significantly from their  bulk counterparts.  In modern nanoelectronics, nanomaterials enable device miniaturization, faster switching speeds, and  reduced power consumption. Their high surface - to - volume ratio and quantum effects allow improved  performance in transistors, sensors, and memory devices, making them essential for next generation  computing technologies.  Applications of Nanomaterials:  High - speed and low - power transistors  Advanced sensors  Biomedical and energy - storage applications  For example, materials like graphene show exceptional electrical conductivity, making them promising  for future computing devices.
+
+--- PAGE 17 ---
+
+Real - Life Applications of Materials Chemistry  Example 1: Flexible Electronics  Foldable smartphones and wearable devices require materials that can bend  without losing conductivity. Conducting polymers and two - dimensional  materials make this possible  Example 2: Electric Vehicles and Energy Storage  Battery performance depends on electrode and electrolyte materials. Research  into solid - state batteries aims to improve safety, charging speed, and energy  density.
+
+--- PAGE 18 ---
+
+Key Takeaways for Students  •   Material selection determines the performance and reliability of computing devices.  •   Materials chemistry bridges the gap between physical science and computing technology.  •   Advances in materials enable faster processors, higher data storage, and new computing  paradigms.  •   Future technologies such as quantum computing and flexible electronics rely heavily on  innovative materials
+
+--- PAGE 19 ---
+
+
+
+--- PAGE 20 ---
+
+BASIC CHEMICAL  PRINCIPLES
+
+--- PAGE 21 ---
+
+INTRODUCTION - CHEMISTRY HIDDEN INSIDE TECHNOLOGY  Have you ever wondered what makes a laptop process data or a mobile phone store photos?   While  software controls operations, the real work happens at the material level. Every electronic device  depends on chemical principles that determine how materials behave.  The behavior and performance of materials used in computing systems are fundamentally governed by  basic chemical principles. These principles explain how atoms interact, how electrons are arranged, and  how these interactions influence electrical, thermal, .magnetic, and optical properties.  In this lesson, we will explore the foundation of materials chemistry — atoms, molecules, bonding,  reactions, and the periodic table — and understand how these principles quietly power modern  technology.  CHEMISTRY   MATERIAL   DEVICES   TECHNOLOGY
+
+--- PAGE 22 ---
+
+Atoms: The Fundamental Units of Matter  What Is an Atom?  An atom is the smallest particle of an element that still shows the  characteristics of that element. Everything around us — metals, plastics, air,  and electronic chips — is made up of atoms.  An atom is the smallest unit of an element that retains its chemical  properties. Each atom consists of a central nucleus, which contains  positively charged protons and uncharged neutrons, surrounded by  negatively charged electrons that move in specific energy levels or shells  around the nucleus.  Structure of an Atom  An atom consists of three main subatomic particles:  •   Protons:   Positively charged particles located in the nucleus  •   Neutrons:   Neutral particles present in the nucleus  •   Electrons:   Negatively charged particles revolving around the nucleus
+
+--- PAGE 23 ---
+
+Elements, Compounds, and Molecules: Forms of Matter  Elements  An element is a pure substance composed of only one kind of atom.  Elements form the foundation of all materials used in engineering and computing.  Important elements in technology:  •   Silicon (Si):   Used in chips and transistors  •   Copper (Cu):   Used in wires and circuit paths  •   Gold (Au) and Silver (Ag):   Used in high - reliability electrical contacts
+
+--- PAGE 24 ---
+
+Compounds  A compound forms when two or more different elements chemically combine in a fixed ratio,  producing a substance with new properties.  Example:  •   Silicon dioxide ( SiO ₂):   Used in glass, optical fibers, and semiconductor insulation layers  Molecules  A molecule is formed when atoms bond together. Molecules may consist of the same element or different  elements.  Examples:  •   O₂:   Molecule made of two oxygen atoms  •   H₂O:   Molecule made of hydrogen and oxygen atoms
+
+--- PAGE 25 ---
+
+Bonding: Holding Atoms Together  Chemical bonding   is the force that joins atoms to  form molecules  and compounds. Atoms bond to achieve stability,  usually by  interacting through electrons.  Types of Chemical Bonds:  •   Ionic Bond:   Electron transfer (example: NaCl)  •   Covalent Bond:   Electron sharing (example: H₂O)  •   Metallic Bond:   Free movement of electrons  (example: Fe, Cu)
+
+--- PAGE 26 ---
+
+Why Covalent Bonds Matter in Technology?  Covalent bonds are strong and stable. In  semiconductors, covalent bonding allows  electrons to be shared but not completely free,  creating a balance between conductivity and  insulation. This bonding is responsible for  semiconductor behavior, as electrons can be  excited into conduction under controlled  conditions such as temperature changes or  doping.  Example: In a silicon crystal lattice, each  silicon atom forms four covalent bonds with  neighboring silicon atoms, creating a stable  structure that enables controlled electrical  conductivity. Semiconductor materials like  silicon rely on covalent bonding to control  electrical conductivity, which is essential for  transistors and ICs.
+
+--- PAGE 27 ---
+
+Mixtures: Physical Combination of Substances  A mixture forms when substances combine physically without chemical bonding.  Each component retains its original properties.  Types of Mixtures:  •   Homogeneous Mixture:   Uniform composition (e.g., salt solution)  •   Heterogeneous Mixture:   Non - uniform composition (e.g., sand and iron filings)
+
+--- PAGE 28 ---
+
+4. Chemical Reactivity: Why Materials Behave Differently  Chemical reactivity explains why some materials react easily while others remain stable. This behavior  depends on how readily atoms gain or lose electrons.  Types of Reactions:  Oxidation  Loss of electrons or gain of oxygen.  Example: Rusting of iron.  4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ →   Fe₂O ₃. xH₂O  Reduction  Gain of electrons or loss of oxygen.  Example:Extraction   of copper(metallurgy)  2CuO + C → 2Cu + CO₂
+
+--- PAGE 29 ---
+
+Redox Reaction  Oxidation and reduction always occur together.  Example: Zinc reacting with copper sulphate solution  Real life applications:  •   Batteries: In alkaline batteries, zinc is oxidized and manganese dioxide is reduced to generate  electricity.  •   Combustion: Burning fuels (wood, gas, fireworks) is a rapid redox reaction where fuel is oxidized by  oxygen.  •   Rusting: Iron metal reacts with oxygen and water to form iron oxide (rust), where iron is oxidized and  oxygen is reduced. 𝑍𝑛 ( 𝑠 )   +   𝐶𝑢𝑆 𝑂 4 ( 𝑎𝑞 )   →   𝑍𝑛𝑆 𝑂 4 ( 𝑎𝑞 )   +   𝐶𝑢 ( 𝑠 )
+
+--- PAGE 30 ---
+
+Why Does Iron Rust but Gold Remains Shiny?  •   Iron is chemically active and reacts with oxygen and moisture, leading to corrosion. Gold is chemically  stable and resists oxidation, which is why it is used in electronic connectors. Gold forms a stable oxide  layer that is unaffected by weathering.  •   Gold is a noble metal and does not react with water or air. No oxidation occurs under normal conditions  hence it remains shiny for years  •   Corrosion prevention:  Iron can be protected using   galvanization , where zinc acts as a protective layer.
+
+--- PAGE 31 ---
+
+Periodic  Table: The  Map of  Elements
+
+--- PAGE 32 ---
+
+Electron Configuration and Periodic Trends  Electron configuration   describes the manner in which electrons are distributed among the available atomic  orbitals (s, p, d, and f) of an atom. This distribution follows well - defined rules and determines the number of  valence electrons, which directly influences how an element bonds with others and how it behaves in solid  materials. In materials chemistry, electron configuration is important because it governs bond formation,  electrical conductivity, magnetic   behavior , and chemical reactivity. When atoms combine to form materials,  their electron configurations determine whether electrons are free to move, shared between atoms, or tightly  bound.  The periodic table   organizes elements based on their atomic structure and properties, helping scientists  predict behavior.  Structure:  •   Groups (Columns):   Same valence electrons, similar properties  •   Periods (Rows):   Increasing atomic number  Periodic Trends:  •   Atomic Size:   Increases down a group  •   Reactivity:   Metals become more reactive down a group  •   Electronegativity:   Ability to attract electrons. Atoms with high electronegativity tend to form strong covalent  or ionic bonds, which affects whether a material behaves as a semiconductor or an insulator.
+
+--- PAGE 33 ---
+
+Ionization energy  Ionization energy is the energy required to remove an electron from an atom. A lower  ionization energy means electrons can be removed easily, facilitating electrical  conduction, whereas high ionization energy results in tightly bound electrons and poor  conductivity.  Characteristics of Metals  • Low ionization energy, allowing valence electrons to be removed or delocalized easily.  • Low electronegativity, meaning they do not strongly attract electrons and readily share  them in metallic bonding  Characteristics of Non - Metals  • High electronegativity, causing them to strongly attract electrons.  • Strong electron binding, which keeps electrons localized around atoms.
+
+--- PAGE 34 ---
+
+Chemistry in Everyday Technology  Chemical principles operate silently inside  daily - use devices.  Example: Batteries  Batteries work through redox reactions that  allow electrons to flow and generate electrical  energy.  Other Applications:  •   Semiconductors:   Microprocessors and  memory  •   Superconductors:   High - speed data  transmission  •   Nanomaterials:   Faster and energy - efficient  processors  Every advancement in computing is supported  by smart chemical design.
+
+--- PAGE 35 ---
+
+Key Takeaways for Students  •   Atoms and bonding determine material behavior  •   Chemical reactions affect durability and performance  •   The periodic table guides material selection  •   Chemistry plays a central role in modern computing technologies
+
+--- PAGE 36 ---
+
+
+
+--- PAGE 37 ---
+
+Electronic Structure  and  Bonding in Materials
+
+--- PAGE 38 ---
+
+Introduction: Why Do Materials Behave Differently?  Have you noticed that a metal wire allows current to pass easily,  while a rubber coating blocks it completely? Or that diamond can  cut glass, while graphite leaves marks on paper — even though both  are made of carbon?  The answer lies not in the atoms themselves, but in   how electrons are arranged and bonded   inside  materials. Here, we will understand how   electronic structure and bonding   control material properties  and why this knowledge is essential for technologies like microprocessors, batteries, and solar cells.  The electronic structure and type of chemical bonding in a material determine how electrons  are arranged and how freely they can move. This directly influences whether a material behaves  as a conductor, semiconductor, or insulator. In computing systems, understanding bonding is  essential because electronic devices rely on precise control of electron motion at the atomic  level.
+
+--- PAGE 39 ---
+
+Electronic Structure: The Key to Material Properties  What Is Electronic Structure?  Electronic structure refers to how electrons are distributed around the nucleus of an atom.  These electrons determine how a material interacts with electricity, heat, and light.  Simple classroom analogy:  Think of electrons like people in a city. In some cities, roads are wide and people move freely  (conductors). In others, roads are narrow and restricted (insulators). The ease of movement decides the  city’s activity — just like electron movement decides conductivity.  Why Does This Matter?  The arrangement of electrons explains:  •   Why metals conduct electricity  •   Why plastics act as insulators  •   Why some materials become magnetic or reactive
+
+--- PAGE 40 ---
+
+Atomic Orbitals and Energy Levels  Atomic Orbitals  An atomic orbital is the region around the nucleus where an electron is most likely to be found.  Electrons are not fixed at one point; instead, they move within these regions.  Energy Levels  Electrons occupy specific energy levels, similar to floors in a building:  •   Lower floors → lower energy, tightly held electrons  •   Higher floors → higher energy, loosely held electrons  Orbitals are classified as   s, p, d, and f , each having different shapes and capacities.
+
+--- PAGE 41 ---
+
+Role of Valence Electrons  Electrons in the outermost shell (valence  electrons) decide:  •   Electrical conductivity  •   Bond formation  •   Chemical reactivity  Example:  •   Copper conducts electricity because its  valence electrons move easily  •   Plastic does not conduct because its  electrons are tightly bound
+
+--- PAGE 42 ---
+
+TYPES OF CHEMICAL BONDING  1.Ionic bonding  Ionic bonding   involves the complete transfer of one or more electrons from one atom to  another, resulting in the formation of   positively charged cations and negatively charged  anions . These oppositely charged ions are held together by a strong electrostatic attraction,  forming a rigid and stable crystal structure.  Because electrons are strongly localized around ions and not free to move, materials with ionic  bonding typically exhibit insulating behavior. The large energy required to move electrons  makes them poor conductors of electricity, which is why ionic materials are commonly used as  electrical insulators in electronic systems.  Example : Sodium chloride (NaCl), where electrons are transferred from sodium to chlorine,  forming a stable ionic lattice
+
+--- PAGE 43 ---
+
+2. Covalent bonding  Covalent bonding   occurs when atoms   share electrons   to achieve a stable electronic  configuration. This type of bonding is   directional , meaning the shared electrons are localized  between specific pairs of atoms, resulting in well - defined bond angles and structures.  In semiconductors, covalent bonding allows electrons to be shared but not completely free,  creating a balance between conductivity and insulation. This bonding is responsible for  semiconductor behavior,   as electrons can be excited into conduction under controlled  conditions such as temperature changes or doping.  Eg: In a silicon crystal lattice, each silicon atom forms four covalent bonds with  neighboring silicon atoms, creating a stable structure that enables controlled electrical  conductivity.
+
+--- PAGE 44 ---
+
+3. Metallic bonding  Metallic bonding is characterized by   positive metal ions arranged in a lattice and  surrounded  by a sea of delocalized electrons . These electrons are not associated with any  specific atom  and are free to move throughout the entire structure.  This bonding is   non - directional , allowing metals to conduct electricity and heat  efficiently. The  free movement of electrons under an applied electric field makes metallic materials  excellent  conductors, which is essential for current flow and heat dissipation in computing  systems.  Example : Copper and aluminum, which are widely used in electrical wiring,  interconnects, and  heat management components in computers.
+
+--- PAGE 45 ---
+
+From Atoms to Solids: Introduction to Band Theory  In isolated atoms, electrons occupy discrete (well - defined) energy levels because each atom  exists independently. However, when a very large number of atoms come together to form a  solid, their atomic orbitals overlap. As a result, these discrete energy levels broaden and split  into closely spaced energy bands, known as energy bands. This concept is explained by  energy band theory, which is fundamental to understanding the electrical behavior of  Materials OR  When atoms come together to form a solid, their individual energy levels merge to form   energy bands .  What Is Band Theory?  Band theory explains that electrons in solids occupy specific energy ranges called bands, and they  cannot exist in the gaps between them .
+
+--- PAGE 46 ---
+
+Important Energy Bands  Valence Band  The valence band is the energy band that is normally occupied by electrons at absolute zero  temperature. These electrons are involved in bonding between atoms and are generally not free  to move under normal conditions. The extent to which electrons in the valence band can be  excited determines whether a material can conduct electricity .  Conduction Band  The conduction band is the energy band in which electrons are free to move throughout the  solid. Electrons present in this band can respond to an applied electric field, resulting in  electrical conduction. For a material to conduct electricity, electrons must gain sufficient  energy to move from the valence band to the conduction band.
+
+--- PAGE 47 ---
+
+Band Gap  The band gap is the energy difference between the valence band and the conduction band.  It represents the minimum energy required for an electron to be excited from the valence band  into the conduction band. The size of the band gap plays a crucial role in determining a  material’s electrical properties.
+
+--- PAGE 48 ---
+
+Classification of Materials Using Band Theory  Conductors  •   Valence and conduction bands overlap  •   Electrons move freely  •   Examples: Copper, Silver  Insulators  •   Large band gap  •   Electrons cannot jump to conduction band  •   Examples: Glass, Rubber  Semiconductors  •   Small band gap  •   Conductivity can be controlled  •   Examples: Silicon, Germanium  This ability to control conductivity makes semiconductors ideal for electronics.
+
+--- PAGE 49 ---
+
+Why Silicon Is Ideal for Microchips  Silicon is widely used in electronic  devices because:  •   It has a moderate band gap (~1.1 eV)  •   Its conductivity can be controlled  using doping  •   It is abundant and cost - effective  •   Silicon dioxide forms a natural  insulating layer  These features make silicon perfect for  transistors, which act as ON – OFF  switches in computers.
+
+--- PAGE 50 ---
+
+Applications in Computing and Technology  •   Silicon:   Used in microchips due to controllable  conductivity  •   Copper:   Used in wires due to free - moving electrons  •   Batteries:   Use ionic movement for energy storage and  release  Electronic structure and bonding together define how  materials function in real devices.
+
+--- PAGE 51 ---
+
+Key Takeaways  •   Electron arrangement controls material behavior  •   Band theory explains conductivity  •   Bonding determines strength and flexibility  •   Materials chemistry drives modern electronics
+
+--- PAGE 52 ---
+
+ASSIGNMENT TITLE - 1  From Periodic Table to Microchip: How Chemists Select  Materials  You should be able to:  •   Connect   periodic table trends   with   material properties  •   Understand   why certain elements are chosen for electronics  •   Apply   electronic structure and bonding concepts   to real engineering materials
+
+--- PAGE 53 ---
+
+
+
+--- PAGE 54 ---
+
+
+
+--- PAGE 55 ---
+
+CHEMICAL PROPERTIES OF METALS  Why Do We Study Chemical Properties of Metals?  Imagine designing a railway track using aluminum or making electrical contacts using iron. Would they work efficiently?  Material selection is never random — it is guided by chemical behavior.  Metals are fundamental to engineering systems:  •   Structural frameworks  •   Electrical circuits  •   Transportation  •   Medical devices  To use them effectively, we must understand how metals chemically interact with their surroundings.  The   chemical properties of materials   influence their stability, reactivity, and performance in computing systems.  These properties, combined with physical characteristics, determine how materials behave during fabrication,  operation, and long - term use in electronic devices. Chemical properties of metals describe how metals react with  oxygen, water, acids, bases and other metal compounds, leading to the formation new substances.
+
+--- PAGE 56 ---
+
+Metals vs Non - Metals Chemical Comparison
+
+--- PAGE 57 ---
+
+What Is Reactivity in Metals?  Reactivity   refers to how readily a metal undergoes chemical reactions with  substances like:  •   Oxygen - forms basic metal oxides  •   Water - forms hydroxides + hydrogen  •   Acids - forms salt +hydrogen gas  Some metals react instantly, others react slowly, and a few hardly react at all.  4. Why Are Some Metals More Reactive Than Others?  The   ease of losing electrons   determines metal reactivity.  Factors influencing reactivity:  •   Atomic size  •   Nuclear attraction on valence electrons  •   Number of shells  •   Temperature  •   Ionization energy  Metals that lose electrons easily form cations quickly →   higher reactivity
+
+--- PAGE 58 ---
+
+Reactivity Series: Ordering Metals by Behavior  Scientists arranged metals from   most reactive to least reactive   based on experiments. This arrangement is called the   Reactivity Series .  Broad classification:  Highly Reactive Metals   (K, Na, Ca, Mg)  •   React vigorously with water and acids  •   Stored under oil (to prevent reaction with air and moisture)  •   Not found freely in nature(found as compounds)  •   Reacts quickly with air.  Moderately Reactive Metals   (Al, Zn, Fe, Pb)  •   React with acids  •   Require heating for oxidation  •   Used structurally  •   Found in nature as ores  Least Reactive Metals   (Cu, Ag, Au, Pt)  •   Very stable  •   Used for coins and jewelry  •   Found in native(free) form  •   Do not corrode easily
+
+--- PAGE 59 ---
+
+Experimental Insight: Metal Displacement Concept  When two metals compete for stability,   the more reactive one wins .  This principle is observed in   displacement reactions , widely used in:  •   Metal extraction  •   Corrosion prevention  •   Electrochemistry  Energy Changes in Metal Reactions  Chemical reactions involve   energy transfer .(usually in the form of heat  There are two main types:  1.   Exothermic reactions  2.   Endothermic reactions
+
+--- PAGE 60 ---
+
+Exothermic Reactions  An   exothermic reaction   is a chemical reaction in which   energy is released   to the surroundings, usually in the form of  heat, light, or flame  Characteristics  •   Release heat to the surroundings  •   Temperature of surroundings increases  •   Occur   spontaneously   once started  •   Very common in   metal oxidation reactions  Example(Burning of magnesium ribbon)  2 𝑀𝑔   +   𝑂 2   →   2 𝑀𝑔𝑂   +  heat   +  light  •   Magnesium reacts with oxygen  •   Large amount of heat and bright white light are released  •   This is a   highly exothermic reaction  Other examples  •   Iron rusting (slow exothermic reaction)  •   Sodium reacting with water  •   Combustion of metals
+
+--- PAGE 61 ---
+
+Endothermic Reactions  An   endothermic reaction   is a chemical reaction in which   energy is absorbed   from the surroundings.  Temperature of the surrounding decreases.  Characteristics  •   Absorb heat from surroundings  •   Surroundings become cooler  •   Do   not occur spontaneously  •   Common in   decomposition reactions  Example(Thermal decomposition of calcium carbonate)  𝐶𝑎𝐶 𝑂 3  heat   𝐶𝑎𝑂   +   𝐶 𝑂 2  •   Calcium carbonate does not decompose on its own  •   Heat must be supplied continuously  •   This is an   endothermic reaction  More examples  •   Extraction of metals from ores using heat  •   Decomposition of metal carbonates and hydroxides
+
+--- PAGE 62 ---
+
+Corrosion: A Major Challenge in Engineering  Corrosion   is the slow and gradual destruction of metals due to  chemical or electrochemical reactions with the environment  such as air, moisture, acids, or salts.  Why corrosion matters:  •   Weakens structures  •   Causes economic loss  •   Reduces lifespan of components  Preventing Corrosion(Common methods)  Galvanization  •   Zinc coating on iron  •   Zinc acts as sacrificial metal  Alloying  •   Stainless steel (Fe + Cr + Ni)  •   Chromium forms protective oxide film  Surface Coatings  •   Paint  •   Oil  •   Polymer layers
+
+--- PAGE 63 ---
+
+Semiconductors  Semiconductors   occupy a unique position between metals and insulators in terms of their chemical and electrical properties.  Their behavior is governed by covalent bonding, band gap size, and charge carrier concentration, which allows their electrica l  properties to be precisely controlled. This controllability makes semiconductors the most important materials in computing  systems.  Properties  • Moderate conductivity   means semiconductors conduct electricity better than insulators but less than metals. This occurs  because only a limited number of electrons can cross the band gap under normal conditions, allowing controlled rather than fr ee  conduction.  • Sensitivity   to temperature and impurities is a key characteristic. As temperature increases, more electrons gain energy and  contribute to conduction. Similarly, even very small amounts of impurities can significantly alter conductivity, which is use ful   for  device design but requires precise control during fabrication.  • Ability to be engineered using doping   allows scientists and engineers to tailor the electrical behavior of semiconductors  according to specific device requirements. This chemical modification is central to semiconductor technology.  Doping  Doping is the intentional introduction of small amounts of impurity atoms into a pure (intrinsic) semiconductor to modify its  electrical properties. Doping increases the number of charge carriers without significantly altering the crystal structure.  • n - type doping   involves the addition of donor atoms that have more valence electrons than the host semiconductor. These extra  electrons become free charge carriers, increasing electron concentration and electrical conductivity.  • p - type doping   involves the addition of acceptor atoms that have fewer valence electrons. This creates holes, which act as positive  charge carriers and contribute to electrical conduction.  Through controlled doping, semiconductors can be designed to form p – n junctions, which are the basic building blocks of  transistors, diodes, and integrated circuits used in modern computing systems
+
+--- PAGE 64 ---
+
+Insulators  Insulators   are materials that strongly resist the flow of electric current due to their large band gap and  tightly bound electrons. In computing systems, insulators are essential for ensuring proper device  operation and electrical safety. Their chemical stability and high resistance make them ideal for separating  conductive components and preventing unintended current flow.  Properties  • Very low conductivity:   Electrons in insulators are tightly bound to atoms and cannot move freely,  resulting in negligible electrical conduction. This ensures that current flows only through designated  conducting paths in a device.  • High resistance:   Insulators oppose the flow of electric current strongly, which protects circuits from  leakage currents that could cause errors or damage electronic components.  • Chemically stable : Insulators resist chemical reactions such as oxidation, corrosion, or breakdown at  high temperatures. This stability ensures long - term reliability of insulating layers in devices like integrated  circuits and printed circuit boards.  Role in Computing Systems  •Prevent short circuits: By separating conductive paths, insulators prevent unintended contact between  conductors, which could otherwise cause circuit failure or device damage.  •Separate conducting regions: In microelectronics and integrated circuits, insulators such as silicon  dioxide ( SiO ₂) act as barriers between metal interconnects, transistor gates, and other active regions. This  allows precise control of current flow and proper device functionality.
+
+--- PAGE 65 ---
+
+Semiconductors  vs Insulators  (Chemical  Properties)  Property   Semiconductors   Insulators  Reactivity   Moderately reactive   Chemically inert  Oxidation   Forms thin protective  oxides  Very little or no  oxidation  Doping   Can combine with  other elements  Cannot change  electrical property  Reaction with  acids/bases  Some reactions at high  temp   Mostly resistant  Photochemical  activity   Can react under light   Usually inactive  Stability   Moderate stability   Highly stable
+
+--- PAGE 66 ---
+
+
+
+--- PAGE 67 ---
+
+Materials Behind Information  Storage and Processing
+
+--- PAGE 68 ---
+
+Why Are Modern Computers So Small Yet So Powerful?  A few decades ago, a computer occupied an entire  room and performed only basic calculations.  Today, a smartphone that fits in your pocket can store  years of data, stream videos, and run complex  software effortlessly.  This dramatic transformation did not happen just  because of better programming — it happened because of  carefully chosen materials .  Materials used in computing systems play a critical role in  both storing information and processing it.  The choice of materials, their chemical and physical  properties, and their structural quality directly affect  the performance, efficiency, and reliability of modern  electronic devices.
+
+--- PAGE 69 ---
+
+Why Materials Are Central to Computing  Computers function by controlling the movement of electrons. Whether data is being   stored ,   retrieved , or   processed , everything  depends on how efficiently materials manage electrical signals.  Different components need different properties:  •   Some materials must   conduct electricity quickly  •   Some must   store information reliably  •   Others must   resist heat, corrosion, and signal loss  This is why no single material can do everything — computers are   engineered combinations of materials , each chosen for a specific role.  Understanding Information Storage  What Does “Storing Information” Mean?  Information storage is the ability of a device to   retain data   so it can be accessed later. Storage systems are broadly  classified into:  •   Volatile storage (RAM):   Temporary memory that disappears when power is off  •   Non - volatile storage (HDD, SSD):   Long - term memory that remains intact  The chemistry of materials decides   how long data lasts ,   how fast it can be accessed ,  and   how compact the storage can be .
+
+--- PAGE 70 ---
+
+Materials Used in Information Storage
+
+--- PAGE 71 ---
+
+Magnetic Storage (Hard Disk Drives)  Traditional hard drives store data using  magnetic orientation .  •   The storage disks are coated with  magnetic alloys   containing iron, cobalt,  and platinum.  •   Each tiny region acts like a microscopic  magnet representing binary data (0s and  1s).  When data is written:  •   An electromagnetic head alters magnetic  directions  •   When reading, changes in magnetism are  detected as electrical signals  This method allows massive data storage  but involves   mechanical movement ,  which limits speed
+
+--- PAGE 72 ---
+
+Solid - State Storage (SSD)  Solid - State Drives represent a major leap in storage technology.  Because there are   no moving parts , SSDs are faster, quieter, and  more energy - efficient.  •   SSDs use   semiconductor - based memory , mainly silicon  •   Data is stored as   electric charge trapped inside transistors  Key materials include:  •   Silicon:   Base semiconductor  Used to fabricate memory cells and control circuits  •   Polysilicon:   Used in floating - gate transistors.  Holds electrons for long periods without power  •   Hafnium & tantalum oxides:   Improve durability and retention
+
+--- PAGE 73 ---
+
+Optical Storage (CD, DVD)  Optical storage uses   light(laser) instead of electricity  or magnetism . A laser light is used to write and  read data. The disc reflects the laser differently to  represent 0s and 1s.  •   Discs are made from   polycarbonate  plastic ( transparent,lightweight )  •   A thin reflective metal layer ( aluminum , silver, or gold)  reflects laser beams  Data is encoded as microscopic pits and lands(tiny  patterns)  •   Laser reflection changes are interpreted as digital  data  Precious metals are used,  •   High reflectivity  •   Long - term data stability  •   Do not corrode easily
+
+--- PAGE 74 ---
+
+DNA as a Storage Medium (Emerging Technology)  DNA is nature’s data storage system.  •   Four bases (A, T, C, G) can encode digital information  •   DNA offers   extreme data density   and long - term stability  Advantages:  •   Can store enormous data in tiny volumes  •   Stable for thousands of years  Limitations:  •   High cost  •   Slow read/write speeds  This technology is still experimental but promising for   archival storage .
+
+--- PAGE 75 ---
+
+Understanding Information Processing  What Is Information Processing?  Processing is the act of   manipulating stored data   to perform tasks.  This function is handled by the   processor (CPU) , which:  •   Fetches data from memory  •   Performs logical operations  •   Sends results back to storage or output devices  Processing speed depends heavily on   material properties   such as conductivity, band gap, and thermal stability.  Materials Used in Information Processing  1. Silicon and Transistors  The transistor is the fundamental unit of processing.  •   Made primarily from   silicon  •   Operates as an ON – OFF switch  •   Controls electron flow with precision  Silicon is ideal because:  •   It can act as both conductor and insulator  •   Its conductivity can be controlled through doping  •   It forms a stable oxide layer ( SiO ₂)
+
+--- PAGE 76 ---
+
+2. Beyond Silicon   –   Graphene and Carbon Nanotubes  As transistors become extremely small, silicon faces physical limits.  Alternative materials being explored:  •   Graphene:   Single layer of carbon atoms with ultra - high conductivity  •   Carbon nanotubes:   Cylindrical graphene structures with excellent strength and speed  Benefits:  •   Faster electron transport  •   Lower power consumption  •   Smaller device dimensions  These materials could define   next - generation processors .
+
+--- PAGE 77 ---
+
+3.   Superconductors in Advanced  Computing  Superconductors allow electricity to flow  without resistance .  Key materials include:  •   Niobium  •   YBCO (Yttrium Barium Copper Oxide)  •   Magnesium diboride  Applications:  •   Quantum computing  •   High - speed data processing  •   Ultra - low energy loss systems  Current limitation: Need for extremely low  temperatures
+
+--- PAGE 78 ---
+
+Emerging Trends in Computing Materials  Neuromorphic Computing  •   Mimics human brain behaviour  •   Uses   memristors   that remember past electrical states  •   Enables learning and adaptability in hardware  3D Integrated Circuits  •   Chips stacked vertically  •   Reduced signal travel distance  •   Improved speed and efficiency  Spintronics  •   Uses electron   spin   instead of charge  •   Enables faster, non - volatile memory  •   Uses magnetic semiconductors  Sustainable Computing  •   Biodegradable electronics  •   Recyclable semiconductors  •   Energy - efficient materials
+
+--- PAGE 79 ---
+
