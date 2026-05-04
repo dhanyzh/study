@@ -19,11 +19,11 @@ export async function POST(request) {
     }
 
     const wandboxLang = {
-      javascript: 'nodejs-head',
-      python: 'cpython-head',
+      javascript: 'nodejs-20.17.0',
+      python: 'cpython-3.14.0',
       cpp: 'gcc-head',
       c: 'gcc-head-c',
-      java: 'openjdk-head'
+      java: 'openjdk-jdk-22+36'
     }[language];
 
     if (!wandboxLang) {
