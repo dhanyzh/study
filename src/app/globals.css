@@ -5,26 +5,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Colors */
-  --bg-primary: #0a0a1a;
-  --bg-secondary: #111128;
-  --bg-card: #161635;
-  --bg-hover: #1e1e45;
-  --bg-glass: rgba(22, 22, 53, 0.7);
-  --border: rgba(255,255,255,0.06);
-  --border-active: rgba(108,99,255,0.4);
+  /* Colors - Light Theme */
+  --bg-primary: #F9FAFB;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F3F4F6;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --border: #E5E7EB;
+  --border-active: rgba(108, 99, 255, 0.5);
 
-  --text-primary: #f0f0ff;
-  --text-secondary: #8888aa;
-  --text-muted: #555577;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
 
   --accent: #6C63FF;
-  --accent-light: #8B83FF;
-  --accent-glow: rgba(108,99,255,0.3);
-  --success: #2ECC71;
-  --danger: #FF6B6B;
-  --warning: #FFE66D;
-  --info: #4ECDC4;
+  --accent-light: #5A52E6;
+  --accent-glow: rgba(108, 99, 255, 0.2);
+  --success: #10B981;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --info: #0EA5E9;
 
   /* Subject colors */
   --dsa: #6C63FF;
@@ -311,7 +311,7 @@ a:hover { text-decoration: underline; }
 .markdown-body th { background-color: var(--bg-hover); font-weight: 600; }
 .markdown-body a { color: var(--accent-light); text-decoration: underline; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 { margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
-.mermaid-wrapper { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0; display: flex; justify-content: center; overflow-x: auto; }
+.mermaid-wrapper { background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem; margin: 1rem 0; display: flex; justify-content: center; overflow-x: auto; }
 .mermaid-wrapper svg { max-width: 100%; height: auto; }
 
 /* ─── Rich Markdown Notes (.md-notes) ─── */
@@ -368,8 +368,8 @@ a:hover { text-decoration: underline; }
 .md-notes td {
   padding: 9px 14px; border: 1px solid var(--border);
 }
-.md-notes tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-.md-notes tr:hover td { background: rgba(108,99,255,0.06); }
+.md-notes tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+.md-notes tr:hover td { background: rgba(108,99,255,0.04); }
 .md-notes blockquote {
   border-left: 3px solid var(--accent); margin: 12px 0;
   padding: 8px 16px; background: rgba(108,99,255,0.06);
@@ -598,9 +598,9 @@ a:hover { text-decoration: underline; }
   height: 400px;
   background: var(--bg-glass);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(108, 99, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(108, 99, 255, 0.15);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -610,7 +610,7 @@ a:hover { text-decoration: underline; }
 
 .glass-mockup:hover { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
 
-.mockup-header { height: 30px; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; padding: 0 16px; }
+.mockup-header { height: 30px; background: rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; align-items: center; padding: 0 16px; }
 .dots { display: flex; gap: 6px; }
 .dots span { width: 10px; height: 10px; border-radius: 50%; background: #4a4a4a; }
 .dots span:nth-child(1) { background: #FF6B6B; }
@@ -618,9 +618,9 @@ a:hover { text-decoration: underline; }
 .dots span:nth-child(3) { background: #2ECC71; }
 
 .mockup-body { display: flex; flex: 1; padding: 16px; gap: 16px; }
-.mockup-sidebar { width: 80px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+.mockup-sidebar { width: 80px; background: rgba(0,0,0,0.03); border-radius: 8px; }
 .mockup-content { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-.mockup-block { background: rgba(255,255,255,0.05); border-radius: 8px; }
+.mockup-block { background: rgba(0,0,0,0.05); border-radius: 8px; }
 .block-1 { height: 120px; }
 .mockup-row { display: flex; gap: 16px; flex: 1; }
 .block-2 { flex: 2; }
@@ -636,7 +636,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
   animation: float 6s ease-in-out infinite;
 }
@@ -654,7 +654,7 @@ a:hover { text-decoration: underline; }
 
 .features-section {
   padding: 80px 5%;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.02));
 }
 
 .features-grid {
@@ -677,14 +677,14 @@ a:hover { text-decoration: underline; }
 
 .feature-card::before {
   content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.05), transparent 50%);
+  background: radial-gradient(circle at 100% 0%, rgba(0,0,0,0.03), transparent 50%);
   opacity: 0; transition: opacity 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
   border-color: var(--border-active);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 .feature-card:hover::before { opacity: 1; }
 
@@ -729,5 +729,5 @@ a:hover { text-decoration: underline; }
 .markdown-body th { background-color: var(--bg-hover); font-weight: 600; }
 .markdown-body a { color: var(--accent-light); text-decoration: underline; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 { margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
-.mermaid-wrapper { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0; display: flex; justify-content: center; overflow-x: auto; }
+.mermaid-wrapper { background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem; margin: 1rem 0; display: flex; justify-content: center; overflow-x: auto; }
 .mermaid-wrapper svg { max-width: 100%; height: auto; }
