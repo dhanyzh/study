@@ -110,8 +110,8 @@ async function dbConnect() {
 
     // If we get here, nothing worked. Throw so callers know DB is unavailable.
     throw new Error(
-      'MongoDB is not available. Start MongoDB locally (mongod) or set MONGODB_URI in .env.local. ' +
-      'For dev without MongoDB, install mongodb-memory-server: npm i -D mongodb-memory-server'
+      'MongoDB connection failed: ' + e.message + 
+      ' | URI used: ' + (MONGODB_URI ? MONGODB_URI.replace(/\/\/.*@/, '//***@') : 'undefined')
     );
   }
 }

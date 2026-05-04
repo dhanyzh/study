@@ -4,7 +4,7 @@ const uri = "mongodb+srv://jalwadhanish2_db_user:s7IpWpmzMIN5Xxnu@cluster0.suh93
 
 console.log('Connecting to:', uri.replace(/\/\/.*@/, '//***@'));
 
-mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 })
+mongoose.connect(uri, { serverSelectionTimeoutMS: 10000, family: 4 })
   .then(() => {
     console.log('✅ Success! Connected to Atlas.');
     process.exit(0);

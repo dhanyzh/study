@@ -466,6 +466,6 @@ export async function POST() {
     });
   } catch (error) {
     console.error('Seed error:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.toString() }, { status: 500 });
   }
 }
