@@ -18,27 +18,35 @@ export async function POST(request) {
       return NextResponse.json({ error: 'sourceCode and language are required.' }, { status: 400 });
     }
 
-    const pistonLang = {
-      javascript: 'javascript',
-      python: 'python',
-      cpp: 'c++',
-      c: 'c',
-      java: 'java'
+    const judge0Lang = {
+      javascript: 63,
+      python: 71,
+      cpp: 54,
+      c: 50,
+      java: 62
     }[language];
 
-    if (!pistonLang) {
+    if (!judge0Lang) {
       return NextResponse.json({ error: `Unsupported language: ${language}` }, { status: 400 });
     }
 
-    const res = await fetch('https://emkc.org/api/v2/piston/execute', {
+    const apiKey = process.env.JUDGE0_API_KEY;
+    if (!apiKey || apiKey === 'your-judge0-rapidapi-key-here') {
+      return NextResponse.json({ 
+        error: 'Please configure your JUDGE0_API_KEY in .env.local to execute code.' 
+      }, { status: 500 });
+    }
+
+    const res = await fetch(`${process.env.JUDGE0_API_URL || 'https://judge0-ce.p.rapidapi.com'}/submissions?base64_encoded=false&wait=true`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'X-RapidAPI-Key': apiKey,
+        'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
       },
       body: JSON.stringify({
-        language: pistonLang,
-        version: '*',
-        files: [{ content: sourceCode }],
+        language_id: judge0Lang,
+        source_code: sourceCode,
         stdin: stdin || ''
       }),
     });
@@ -50,11 +58,11 @@ export async function POST(request) {
     }
 
     return NextResponse.json({
-      stdout: result.run.stdout || '',
-      stderr: result.run.stderr || '',
-      status: { description: result.run.signal || (result.run.code === 0 ? 'Accepted' : 'Runtime Error') },
-      time: '0.1', // Piston doesn't return time directly in the root, it's fine
-      memory: 0,
+      stdout: result.stdout || '',
+      stderr: result.stderr || result.compile_output || '',
+      status: { description: result.status?.description || 'Unknown' },
+      time: result.time,
+      memory: result.memory,
     });
   } catch (error) {
     console.error('Code execution error:', error);
