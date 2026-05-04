@@ -18,35 +18,27 @@ export async function POST(request) {
       return NextResponse.json({ error: 'sourceCode and language are required.' }, { status: 400 });
     }
 
-    const judge0Lang = {
-      javascript: 63,
-      python: 71,
-      cpp: 54,
-      c: 50,
-      java: 62
+    const wandboxLang = {
+      javascript: 'nodejs-head',
+      python: 'cpython-head',
+      cpp: 'gcc-head',
+      c: 'gcc-head-c',
+      java: 'openjdk-head'
     }[language];
 
-    if (!judge0Lang) {
+    if (!wandboxLang) {
       return NextResponse.json({ error: `Unsupported language: ${language}` }, { status: 400 });
     }
 
-    const apiKey = process.env.JUDGE0_API_KEY;
-    if (!apiKey || apiKey === 'your-judge0-rapidapi-key-here') {
-      return NextResponse.json({ 
-        error: 'Please configure your JUDGE0_API_KEY in .env.local to execute code.' 
-      }, { status: 500 });
-    }
-
-    const res = await fetch(`${process.env.JUDGE0_API_URL || 'https://judge0-ce.p.rapidapi.com'}/submissions?base64_encoded=false&wait=true`, {
+    // Wandbox public API (completely free, no auth required)
+    const res = await fetch('https://wandbox.org/api/compile.json', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        language_id: judge0Lang,
-        source_code: sourceCode,
+        compiler: wandboxLang,
+        code: sourceCode,
         stdin: stdin || ''
       }),
     });
@@ -57,12 +49,15 @@ export async function POST(request) {
       return NextResponse.json({ error: result.message || 'Execution failed on server' }, { status: res.status });
     }
 
+    // Wandbox returns status string '0' for success, '1' for failure
+    const isError = result.status !== '0';
+
     return NextResponse.json({
-      stdout: result.stdout || '',
-      stderr: result.stderr || result.compile_output || '',
-      status: { description: result.status?.description || 'Unknown' },
-      time: result.time,
-      memory: result.memory,
+      stdout: result.program_output || '',
+      stderr: result.compiler_error || result.program_error || '',
+      status: { description: isError ? 'Runtime Error / Compilation Error' : 'Accepted' },
+      time: '0.1', 
+      memory: 0,
     });
   } catch (error) {
     console.error('Code execution error:', error);
