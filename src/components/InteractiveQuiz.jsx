@@ -68,17 +68,17 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
   if (!mode) {
     return (
       <div style={{
-        background: 'rgba(255, 255, 255, 0.03)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         borderRadius: '16px',
         padding: '32px',
         textAlign: 'center'
       }}>
         <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🧪</div>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 700, margin: 0, color: 'white', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 700, margin: 0, color: 'var(--text-primary)', marginBottom: '8px' }}>
           {title}
         </h2>
-        <p style={{ color: 'var(--text-secondary, #a0aec0)', marginBottom: '32px' }}>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>
           {questions.length} questions available
         </p>
 
@@ -86,11 +86,11 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
           <button
             onClick={() => setMode('study')}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              background: 'var(--bg-primary)',
+              border: '1px solid var(--border)',
               borderRadius: '12px',
               padding: '24px',
-              color: 'white',
+              color: 'var(--text-primary)',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
               display: 'flex',
@@ -100,17 +100,17 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               gap: '12px'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+              e.currentTarget.style.background = 'var(--bg-hover)';
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+              e.currentTarget.style.background = 'var(--bg-primary)';
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
             <span style={{ fontSize: '2rem' }}>📖</span>
             <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>Study Mode</span>
-            <span style={{ fontSize: '0.9rem', color: '#a0aec0' }}>Review all questions and answers</span>
+            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Review all questions and answers</span>
           </button>
 
           <button
@@ -128,7 +128,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               border: '1px solid rgba(49, 130, 206, 0.3)',
               borderRadius: '12px',
               padding: '24px',
-              color: 'white',
+              color: 'var(--text-primary)',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
               display: 'flex',
@@ -148,7 +148,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
           >
             <span style={{ fontSize: '2rem' }}>✍️</span>
             <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>Test Mode</span>
-            <span style={{ fontSize: '0.9rem', color: '#a0aec0' }}>
+            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
               {questions.length > SET_SIZE ? `Take a quiz in sets of ${SET_SIZE}` : 'Take the quiz'}
             </span>
           </button>
@@ -161,25 +161,31 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
   if (mode === 'study') {
     return (
       <div style={{
-        background: 'rgba(255, 255, 255, 0.03)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         borderRadius: '16px',
         padding: '32px',
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'white', margin: 0 }}>Study Mode</h2>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', margin: 0 }}>Study Mode</h2>
           <button 
             onClick={resetMode}
             style={{
               background: 'transparent',
-              color: 'var(--text-secondary, #a0aec0)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'var(--text-secondary)',
+              border: '1px solid var(--border)',
               padding: '8px 16px',
               borderRadius: '8px',
               cursor: 'pointer',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary, #a0aec0)'}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+              e.currentTarget.style.borderColor = 'var(--text-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.borderColor = 'var(--border)';
+            }}
           >
             ← Back
           </button>
@@ -190,12 +196,12 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
             const correctOpt = getCorrectOption(q);
             return (
               <div key={idx} style={{ 
-                background: 'rgba(255,255,255,0.05)', 
+                background: 'var(--bg-primary)', 
                 padding: '20px', 
                 borderRadius: '12px',
-                borderLeft: '4px solid #3182ce'
+                borderLeft: '4px solid var(--info)'
               }}>
-                <p style={{ color: 'white', fontWeight: 600, fontSize: '1.1rem', marginBottom: '16px', lineHeight: 1.5 }}>
+                <p style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '1.1rem', marginBottom: '16px', lineHeight: 1.5 }}>
                   {idx + 1}. {q.question}
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
@@ -203,9 +209,9 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                     <div key={oIdx} style={{
                       padding: '12px',
                       borderRadius: '8px',
-                      background: opt === correctOpt ? 'rgba(72, 187, 120, 0.15)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${opt === correctOpt ? '#48bb78' : 'rgba(255,255,255,0.1)'}`,
-                      color: opt === correctOpt ? '#48bb78' : 'rgba(255,255,255,0.6)',
+                      background: opt === correctOpt ? 'rgba(72, 187, 120, 0.15)' : 'var(--bg-hover)',
+                      border: `1px solid ${opt === correctOpt ? '#48bb78' : 'var(--border)'}`,
+                      color: opt === correctOpt ? '#48bb78' : 'var(--text-secondary)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px'
@@ -216,8 +222,8 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                   ))}
                 </div>
                 {q.explanation && (
-                  <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', color: 'var(--text-secondary)' }}>
-                    <strong>Explanation:</strong> {q.explanation}
+                  <div style={{ marginTop: '16px', padding: '12px', background: 'var(--bg-hover)', borderRadius: '8px', color: 'var(--text-secondary)' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>Explanation:</strong> {q.explanation}
                   </div>
                 )}
               </div>
@@ -232,28 +238,34 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
   if (mode === 'test' && !started && questions.length > SET_SIZE) {
     return (
       <div style={{
-        background: 'rgba(255, 255, 255, 0.03)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         borderRadius: '16px',
         padding: '32px',
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'white', margin: 0, marginBottom: '4px' }}>Select a Test Set</h2>
-            <p style={{ color: '#a0aec0', margin: 0, fontSize: '0.9rem' }}>Sets of {SET_SIZE} questions</p>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', margin: 0, marginBottom: '4px' }}>Select a Test Set</h2>
+            <p style={{ color: 'var(--text-secondary)', margin: 0, fontSize: '0.9rem' }}>Sets of {SET_SIZE} questions</p>
           </div>
           <button 
             onClick={resetMode}
             style={{
               background: 'transparent',
-              color: 'var(--text-secondary, #a0aec0)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'var(--text-secondary)',
+              border: '1px solid var(--border)',
               padding: '8px 16px',
               borderRadius: '8px',
               cursor: 'pointer',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary, #a0aec0)'}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+              e.currentTarget.style.borderColor = 'var(--text-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.borderColor = 'var(--border)';
+            }}
           >
             ← Back
           </button>
@@ -268,11 +280,11 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                 key={idx}
                 onClick={() => startQuiz(idx)}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  background: 'var(--bg-primary)',
+                  border: '1px solid var(--border)',
                   borderRadius: '12px',
                   padding: '24px 16px',
-                  color: 'white',
+                  color: 'var(--text-primary)',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                   display: 'flex',
@@ -281,18 +293,18 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                   gap: '8px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = 'var(--bg-hover)';
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  e.currentTarget.style.borderColor = 'var(--border-active)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.currentTarget.style.background = 'var(--bg-primary)';
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.borderColor = 'var(--border)';
                 }}
               >
                 <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>Set {idx + 1}</span>
-                <span style={{ fontSize: '0.9rem', color: '#a0aec0' }}>Questions {startQ} - {endQ}</span>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Questions {startQ} - {endQ}</span>
               </button>
             );
           })}
@@ -308,13 +320,13 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
 
     return (
       <div style={{
-        background: 'rgba(255, 255, 255, 0.03)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         borderRadius: '16px',
         padding: '40px',
         textAlign: 'center',
       }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '16px', color: 'white' }}>
+        <h2 style={{ fontSize: '2rem', marginBottom: '16px', color: 'var(--text-primary)' }}>
           {questions.length > SET_SIZE ? `Set ${selectedSetIndex + 1} Completed!` : 'Quiz Completed!'}
         </h2>
         <div style={{ 
@@ -325,7 +337,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
         }}>
           {percentage}%
         </div>
-        <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary, #a0aec0)', marginBottom: '32px' }}>
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '32px' }}>
           You scored {score} out of {activeQuestions.length}
         </p>
         
@@ -334,9 +346,9 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
             <button 
               onClick={restartQuiz}
               style={{
-                background: 'rgba(255,255,255,0.1)',
-                color: 'white',
-                border: 'none',
+                background: 'var(--bg-primary)',
+                color: 'var(--text-primary)',
+                border: '1px solid var(--border)',
                 padding: '12px 24px',
                 borderRadius: '8px',
                 fontSize: '1rem',
@@ -344,8 +356,8 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                 cursor: 'pointer',
                 transition: 'background 0.2s ease',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-hover)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--bg-primary)'}
             >
               ← Back to Sets
             </button>
@@ -353,9 +365,9 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
             <button 
               onClick={resetMode}
               style={{
-                background: 'rgba(255,255,255,0.1)',
-                color: 'white',
-                border: 'none',
+                background: 'var(--bg-primary)',
+                color: 'var(--text-primary)',
+                border: '1px solid var(--border)',
                 padding: '12px 24px',
                 borderRadius: '8px',
                 fontSize: '1rem',
@@ -363,8 +375,8 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
                 cursor: 'pointer',
                 transition: 'background 0.2s ease',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-hover)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--bg-primary)'}
             >
               ← Main Menu
             </button>
@@ -373,7 +385,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
           <button 
             onClick={() => startQuiz(selectedSetIndex || 0)}
             style={{
-              background: 'var(--primary, #3182ce)',
+              background: 'var(--accent)',
               color: 'white',
               border: 'none',
               padding: '12px 32px',
@@ -383,15 +395,15 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               cursor: 'pointer',
               transition: 'background 0.2s ease',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.background = 'var(--primary-hover, #2b6cb0)'}
-            onMouseLeave={(e) => e.currentTarget.style.background = 'var(--primary, #3182ce)'}
+            onMouseEnter={(e) => e.currentTarget.style.background = 'var(--accent-light)'}
+            onMouseLeave={(e) => e.currentTarget.style.background = 'var(--accent)'}
           >
             Retry Quiz
           </button>
         </div>
 
-        <div style={{ textAlign: 'left', marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px' }}>
-          <h3 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '24px' }}>Review Your Answers</h3>
+        <div style={{ textAlign: 'left', marginTop: '24px', borderTop: '1px solid var(--border)', paddingTop: '32px' }}>
+          <h3 style={{ fontSize: '1.5rem', color: 'var(--text-primary)', marginBottom: '24px' }}>Review Your Answers</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {activeQuestions.map((q, idx) => {
               const userAns = answers[idx];
@@ -400,12 +412,12 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               
               return (
                 <div key={idx} style={{ 
-                  background: 'rgba(255,255,255,0.05)', 
+                  background: 'var(--bg-primary)', 
                   padding: '20px', 
                   borderRadius: '12px',
                   borderLeft: `4px solid ${isCorrect ? '#48bb78' : '#f56565'}`
                 }}>
-                  <p style={{ color: 'white', fontWeight: 600, fontSize: '1.1rem', marginBottom: '12px' }}>
+                  <p style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '1.1rem', marginBottom: '12px' }}>
                     {idx + 1}. {q.question}
                   </p>
                   <p style={{ 
@@ -439,8 +451,8 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
   
   return (
     <div style={{
-      background: 'rgba(255, 255, 255, 0.03)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
+      background: 'var(--bg-card)',
+      border: '1px solid var(--border)',
       borderRadius: '16px',
       padding: '32px',
     }}>
@@ -450,7 +462,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
         alignItems: 'center',
         marginBottom: '24px',
         paddingBottom: '16px',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+        borderBottom: '1px solid var(--border)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <button 
@@ -460,7 +472,7 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
             }}
             style={{
               background: 'transparent',
-              color: 'var(--text-secondary, #a0aec0)',
+              color: 'var(--text-secondary)',
               border: 'none',
               padding: '0',
               cursor: 'pointer',
@@ -472,24 +484,24 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
           >
             ←
           </button>
-          <span style={{ color: 'var(--text-secondary, #a0aec0)', fontWeight: 600 }}>
+          <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>
             Question {currentQuestionIndex + 1} / {activeQuestions.length}
           </span>
         </div>
         {questions.length > SET_SIZE && (
           <span style={{ 
-            background: 'rgba(255,255,255,0.1)', 
+            background: 'var(--bg-hover)', 
             padding: '4px 12px', 
             borderRadius: '12px',
             fontSize: '0.9rem',
-            color: 'white'
+            color: 'var(--text-primary)'
           }}>
             Set {selectedSetIndex + 1}
           </span>
         )}
       </div>
 
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'white', marginBottom: '32px', lineHeight: 1.4 }}>
+      <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '32px', lineHeight: 1.4 }}>
         {currentQ.question}
       </h2>
 
@@ -500,9 +512,9 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
           const isCorrect = option === correctOpt;
           const showResult = selectedOption !== null;
           
-          let bgColor = 'rgba(255, 255, 255, 0.05)';
-          let borderColor = 'rgba(255, 255, 255, 0.1)';
-          let color = 'white';
+          let bgColor = 'var(--bg-primary)';
+          let borderColor = 'var(--border)';
+          let color = 'var(--text-primary)';
           
           if (showResult) {
             if (isCorrect) {
@@ -514,11 +526,11 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               borderColor = '#f56565';
               color = '#f56565';
             } else {
-              color = 'rgba(255,255,255,0.4)';
+              color = 'var(--text-muted)';
             }
           } else if (isSelected) {
-            bgColor = 'rgba(255, 255, 255, 0.1)';
-            borderColor = 'rgba(255, 255, 255, 0.3)';
+            bgColor = 'var(--bg-hover)';
+            borderColor = 'var(--border-active)';
           }
 
           return (
@@ -543,8 +555,8 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
               }}
               onMouseEnter={(e) => {
                 if (!showResult) {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  e.currentTarget.style.background = 'var(--bg-hover)';
+                  e.currentTarget.style.borderColor = 'var(--border-active)';
                 }
               }}
               onMouseLeave={(e) => {
@@ -565,16 +577,16 @@ export default function InteractiveQuiz({ title = "Quiz", questions = [] }) {
       {selectedOption !== null && (
         <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {currentQ.explanation && (
-            <div style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', color: 'var(--text-secondary)' }}>
-              <strong style={{ color: 'white' }}>Explanation:</strong> {currentQ.explanation}
+            <div style={{ padding: '16px', background: 'var(--bg-hover)', borderRadius: '12px', color: 'var(--text-secondary)' }}>
+              <strong style={{ color: 'var(--text-primary)' }}>Explanation:</strong> {currentQ.explanation}
             </div>
           )}
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button
               onClick={nextQuestion}
               style={{
-                background: 'white',
-                color: 'black',
+                background: 'var(--accent)',
+                color: 'white',
                 border: 'none',
                 padding: '12px 32px',
                 borderRadius: '8px',
