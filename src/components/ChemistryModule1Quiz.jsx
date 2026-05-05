@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const questions = [
+export const chemistryQuestions = [
   {
     question: "Which factor MOST strongly controls electrical behavior in materials?",
     options: ["Density", "Atomic mass", "Electronic structure", "Color"],
@@ -506,5 +506,5 @@ const questions = [
 import InteractiveQuiz from './InteractiveQuiz';
 
 export default function ChemistryModule1Quiz() {
-  return <InteractiveQuiz title="Module 1: Basic Chemistry" questions={questions} />;
+  return <InteractiveQuiz title="Module 1: Basic Chemistry" questions={chemistryQuestions} />;
 }
