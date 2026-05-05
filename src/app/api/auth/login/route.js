@@ -6,7 +6,8 @@ import { comparePassword, generateToken } from '@/lib/auth';
 // Strict access list
 const AUTHORIZED_USERS = {
   'dhanish': { password: 'dhani123', displayName: 'Dhanish' },
-  'theja': { password: 'theja123', displayName: 'Theja' }
+  'theja': { password: 'theja123', displayName: 'Theja' },
+  'fezin': { password: 'fezin123', displayName: 'Fezin' }
 };
 
 export async function POST(request) {
@@ -55,7 +56,7 @@ export async function POST(request) {
     // 3. Local Auth Mode (Fallback if DB is missing or empty but user is in authorized list)
     if (!user) {
       user = {
-        _id: cleanUsername === 'dhanish' ? 'user_dhanish_123' : 'user_theja_123',
+        _id: `user_${cleanUsername}_123`,
         username: cleanUsername,
         displayName: AUTHORIZED_USERS[cleanUsername].displayName,
         role: 'student',
