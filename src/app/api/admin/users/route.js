@@ -6,7 +6,7 @@
 
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
-import { requireAdmin } from '@/lib/adminAuth';
+import { requirePermission } from '@/lib/adminAuth';
 import User from '@/models/User';
 
 export async function GET(request) {
