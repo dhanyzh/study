@@ -5,11 +5,13 @@ import { comparePassword, generateToken } from '@/lib/auth';
 
 // Strict access list
 const AUTHORIZED_USERS = {
-  'dhanish': { password: 'dhani123', displayName: 'Dhanish' },
-  'theja': { password: 'theja123', displayName: 'Theja' },
-  'fezin': { password: 'fezin123', displayName: 'Fezin' },
-  'sinan': { password: 'sinan123', displayName: 'Sinan' },
-  'dilkash': { password: 'dilkash123', displayName: 'Dilkash' }
+  'dhanish': { password: 'dhani123', displayName: 'Dhanish', role: 'student' },
+  'theja': { password: 'theja123', displayName: 'Theja', role: 'student' },
+  'fezin': { password: 'fezin123', displayName: 'Fezin', role: 'student' },
+  'sinan': { password: 'sinan123', displayName: 'Sinan', role: 'student' },
+  'dilkash': { password: 'dilkash123', displayName: 'Dilkash', role: 'student' },
+  'admindhanis': { password: 'dhani123', displayName: 'Admin Dhanish', role: 'admin' },
+  'admindilkash': { password: 'dilkash123', displayName: 'Admin Dilkash', role: 'admin' },
 };
 
 export async function POST(request) {
@@ -34,6 +36,7 @@ export async function POST(request) {
       );
     }
 
+    const authEntry = AUTHORIZED_USERS[cleanUsername];
     let user;
 
     // 2. Try Database Connection
@@ -46,6 +49,10 @@ export async function POST(request) {
         const isValid = await comparePassword(password, user.passwordHash);
         if (isValid) {
           user.lastLogin = new Date();
+          // Sync role from authorized list
+          if (user.role !== authEntry.role) {
+            user.role = authEntry.role;
+          }
           await user.save();
         } else {
           // Fallback to strict list if DB hash fails for some reason
@@ -60,15 +67,15 @@ export async function POST(request) {
       user = {
         _id: `user_${cleanUsername}_123`,
         username: cleanUsername,
-        displayName: AUTHORIZED_USERS[cleanUsername].displayName,
-        role: 'student',
+        displayName: authEntry.displayName,
+        role: authEntry.role,
         toJSON: function() { 
           return { _id: this._id, username: this.username, displayName: this.displayName, role: this.role }; 
         }
       };
     }
 
-    // Generate JWT token
+    // Generate JWT token (includes role)
     const token = generateToken(user);
 
     return NextResponse.json({

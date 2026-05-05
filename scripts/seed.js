@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
   displayName: { type: String },
   avatar: { type: String, default: '' },
   isDevUser: { type: Boolean, default: false },
+  role: { type: String, enum: ['student', 'admin'], default: 'student' },
   createdAt: { type: Date, default: Date.now },
   lastLogin: { type: Date, default: Date.now },
 });
@@ -205,13 +206,15 @@ async function seed() {
     const hash5 = await bcrypt.hash('dilkash123', 12);
 
     await User.create([
-      { username: 'dhanish', passwordHash: hash1, displayName: 'Dhanish', isDevUser: true, email: 'dhanish@dev.local' },
-      { username: 'theja', passwordHash: hash2, displayName: 'Theja', isDevUser: true, email: 'theja@dev.local' },
-      { username: 'fezin', passwordHash: hash3, displayName: 'Fezin', isDevUser: true, email: 'fezin@dev.local' },
-      { username: 'sinan', passwordHash: hash4, displayName: 'Sinan', isDevUser: true, email: 'sinan@dev.local' },
-      { username: 'dilkash', passwordHash: hash5, displayName: 'Dilkash', isDevUser: true, email: 'dilkash@dev.local' },
+      { username: 'dhanish', passwordHash: hash1, displayName: 'Dhanish', isDevUser: true, email: 'dhanish@dev.local', role: 'student' },
+      { username: 'theja', passwordHash: hash2, displayName: 'Theja', isDevUser: true, email: 'theja@dev.local', role: 'student' },
+      { username: 'fezin', passwordHash: hash3, displayName: 'Fezin', isDevUser: true, email: 'fezin@dev.local', role: 'student' },
+      { username: 'sinan', passwordHash: hash4, displayName: 'Sinan', isDevUser: true, email: 'sinan@dev.local', role: 'student' },
+      { username: 'dilkash', passwordHash: hash5, displayName: 'Dilkash', isDevUser: true, email: 'dilkash@dev.local', role: 'student' },
+      { username: 'admindhanis', passwordHash: hash1, displayName: 'Admin Dhanish', isDevUser: true, email: 'admindhanis@dev.local', role: 'admin' },
+      { username: 'admindilkash', passwordHash: hash5, displayName: 'Admin Dilkash', isDevUser: true, email: 'admindilkash@dev.local', role: 'admin' },
     ]);
-    console.log('👤 Demo users created (dhanish, theja, fezin, sinan, dilkash)');
+    console.log('👤 Users created (5 students + 2 admins)');
 
     // Seed subjects
     const subjects = await Subject.insertMany(SUBJECTS_DATA);
