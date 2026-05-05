@@ -143,18 +143,23 @@ export async function POST(request) {
     await Note.deleteMany({});
     await Quiz.deleteMany({});
 
-    // Seed Admin Users
+    // Seed All Initial Users
     const { hashPassword } = await import('@/lib/auth');
-    const adminUsers = [
+    const initialUsers = [
       { username: 'admindhanis', password: 'dhani123', displayName: 'Admin Dhanish', role: 'super_admin' },
       { username: 'admindilkash', password: 'dilkash123', displayName: 'Admin Dilkash', role: 'admin', permissions: ['manage_users', 'manage_content', 'manage_quizzes', 'view_analytics'] },
+      { username: 'dhanish', password: 'dhani123', displayName: 'Dhanish', role: 'student' },
+      { username: 'theja', password: 'theja123', displayName: 'Theja', role: 'student' },
+      { username: 'fezin', password: 'fezin123', displayName: 'Fezin', role: 'student' },
+      { username: 'sinan', password: 'sinan123', displayName: 'Sinan', role: 'student' },
+      { username: 'dilkash', password: 'dilkash123', displayName: 'Dilkash', role: 'student' },
     ];
 
-    for (const admin of adminUsers) {
-      const passwordHash = await hashPassword(admin.password);
+    for (const u of initialUsers) {
+      const passwordHash = await hashPassword(u.password);
       await User.findOneAndUpdate(
-        { username: admin.username },
-        { ...admin, passwordHash },
+        { username: u.username },
+        { ...u, passwordHash },
         { upsert: true, new: true }
       );
     }
