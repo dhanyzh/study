@@ -17,9 +17,9 @@ export default function Login() {
     setLoading(true);
     setError('');
 
-    const { success, error: authError } = await login(username, password);
+    const { success, user: loggedInUser, error: authError } = await login(username, password);
     if (success) {
-      router.push('/dashboard');
+      router.push(loggedInUser?.role === 'admin' ? '/admin' : '/dashboard');
     } else {
       setError(authError || 'Failed to login');
     }

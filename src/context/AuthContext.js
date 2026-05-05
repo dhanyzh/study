@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem('studyos_token', data.token);
       setToken(data.token);
       setUser(data.user);
-      return { success: true };
+      return { success: true, user: data.user };
     }
     return { success: false, error: data.error };
   }, []);

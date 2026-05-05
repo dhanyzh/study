@@ -70,7 +70,9 @@ export default function Sidebar() {
             </div>
             <div className="sidebar-user-info">
               <div className="sidebar-user-name">{user.displayName}</div>
-              <div className="sidebar-user-role">Student</div>
+              <div className="sidebar-user-role" style={user.role === 'admin' ? { color: '#EF4444' } : undefined}>
+                {user.role === 'admin' ? 'Admin' : 'Student'}
+              </div>
             </div>
             <button 
               onClick={() => { logout(); setIsOpen(false); }} 
