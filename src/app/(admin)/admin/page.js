@@ -90,11 +90,16 @@ export default function AdminDashboard() {
         <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '16px' }}>Quick Actions</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
           {[
-            { icon: '➕', label: 'Add Subject', href: '/admin/subjects', desc: 'Create a new subject module' },
-            { icon: '👤', label: 'Manage Users', href: '/admin/users', desc: 'View and manage user accounts' },
-            { icon: '📝', label: 'Add Quiz', href: '/admin/quizzes', desc: 'Create MCQ quiz questions' },
-            { icon: '📈', label: 'View Activity', href: '/admin/activity', desc: 'Monitor platform activity' },
-          ].map((action, i) => (
+            { icon: '➕', label: 'Add Subject', href: '/admin/subjects', desc: 'Create a new subject module', perm: 'manage_content' },
+            { icon: '👤', label: 'Manage Users', href: '/admin/users', desc: 'View and manage user accounts', perm: 'manage_users' },
+            { icon: '📝', label: 'Add Quiz', href: '/admin/quizzes', desc: 'Create MCQ quiz questions', perm: 'manage_quizzes' },
+            { icon: '📈', label: 'View Activity', href: '/admin/activity', desc: 'Monitor platform activity', perm: 'view_analytics' },
+            { icon: '🛡️', label: 'Admin Management', href: '/admin/admins', desc: 'Manage system admins', perm: 'super_admin_only' },
+          ].filter(action => {
+            if (user?.role === 'super_admin') return true;
+            if (action.perm === 'super_admin_only') return false;
+            return user?.permissions?.includes(action.perm);
+          }).map((action, i) => (
             <a key={i} href={action.href} className="card" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
               <div style={{ fontSize: '1.8rem', marginBottom: '8px' }}>{action.icon}</div>
               <div style={{ fontWeight: 700, marginBottom: '4px' }}>{action.label}</div>
@@ -139,10 +144,10 @@ export default function AdminDashboard() {
                     <td style={{ padding: '12px 16px' }}>
                       <span style={{
                         padding: '3px 10px', borderRadius: '12px', fontSize: '0.72rem', fontWeight: 700,
-                        background: u.role === 'admin' ? 'rgba(239,68,68,0.1)' : 'rgba(108,99,255,0.1)',
-                        color: u.role === 'admin' ? '#EF4444' : 'var(--accent)',
+                        background: u.role === 'super_admin' ? 'rgba(239,68,68,0.2)' : u.role === 'admin' ? 'rgba(108,99,255,0.1)' : 'rgba(16,185,129,0.1)',
+                        color: u.role === 'super_admin' ? '#EF4444' : u.role === 'admin' ? 'var(--accent)' : '#10B981',
                       }}>
-                        {u.role || 'student'}
+                        {(u.role || 'user').replace('_', ' ').toUpperCase()}
                       </span>
                     </td>
                     <td style={{ padding: '12px 16px', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>

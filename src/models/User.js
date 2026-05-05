@@ -38,8 +38,12 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['student', 'admin'],
-    default: 'student',
+    enum: ['user', 'admin', 'super_admin', 'student'], // keeping 'student' for compatibility
+    default: 'user',
+  },
+  permissions: {
+    type: [String],
+    default: [],
   },
   createdAt: {
     type: Date,

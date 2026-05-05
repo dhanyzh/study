@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
-import { requireAdmin } from '@/lib/adminAuth';
+import { requireSuperAdmin } from '@/lib/adminAuth';
 import dbConnect from '@/lib/db';
 import Subject from '@/models/Subject';
 import Chapter from '@/models/Chapter';
 import Topic from '@/models/Topic';
 import Note from '@/models/Note';
 import Quiz from '@/models/Quiz';
+import User from '@/models/User';
 
 const SUBJECTS_DATA = [
   { name: 'DSA', slug: 'dsa', icon: '🧮', color: '#6C63FF', description: 'Data Structures & Algorithms', order: 0 },
@@ -141,6 +142,22 @@ export async function POST(request) {
     await Topic.deleteMany({});
     await Note.deleteMany({});
     await Quiz.deleteMany({});
+
+    // Seed Admin Users
+    const { hashPassword } = await import('@/lib/auth');
+    const adminUsers = [
+      { username: 'admindhanis', password: 'dhani123', displayName: 'Admin Dhanish', role: 'super_admin' },
+      { username: 'admindilkash', password: 'dilkash123', displayName: 'Admin Dilkash', role: 'admin', permissions: ['manage_users', 'manage_content', 'manage_quizzes', 'view_analytics'] },
+    ];
+
+    for (const admin of adminUsers) {
+      const passwordHash = await hashPassword(admin.password);
+      await User.findOneAndUpdate(
+        { username: admin.username },
+        { ...admin, passwordHash },
+        { upsert: true, new: true }
+      );
+    }
 
     // Seed subjects
     const subjects = await Subject.insertMany(SUBJECTS_DATA);

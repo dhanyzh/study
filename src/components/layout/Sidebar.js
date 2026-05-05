@@ -62,13 +62,18 @@ export default function Sidebar() {
             </Link>
           </div>
 
-          {user?.role === 'admin' && (
+          {(user?.role === 'admin' || user?.role === 'super_admin') && (
             <div className="sidebar-section">
               <div className="sidebar-section-title">Administration</div>
               <Link href="/admin" className={`nav-item ${pathname === '/admin' ? 'active' : ''}`} onClick={() => setIsOpen(false)} style={{ background: 'rgba(239,68,68,0.08)', borderColor: 'rgba(239,68,68,0.2)' }}>
                 <span className="nav-icon">🛡️</span> Admin Panel
                 <span className="nav-badge" style={{ background: '#EF4444' }}>GO</span>
               </Link>
+              {user?.role === 'super_admin' && (
+                <Link href="/admin/admins" className={`nav-item ${pathname === '/admin/admins' ? 'active' : ''}`} onClick={() => setIsOpen(false)}>
+                  <span className="nav-icon">🔑</span> Admins
+                </Link>
+              )}
             </div>
           )}
         </div>
@@ -80,8 +85,8 @@ export default function Sidebar() {
             </div>
             <div className="sidebar-user-info">
               <div className="sidebar-user-name">{user.displayName}</div>
-              <div className="sidebar-user-role" style={user.role === 'admin' ? { color: '#EF4444' } : undefined}>
-                {user.role === 'admin' ? 'Admin' : 'Student'}
+              <div className="sidebar-user-role" style={(user.role === 'admin' || user.role === 'super_admin') ? { color: '#EF4444' } : undefined}>
+                {user.role === 'super_admin' ? 'Super Admin' : user.role === 'admin' ? 'Admin' : 'Student'}
               </div>
             </div>
             <button 

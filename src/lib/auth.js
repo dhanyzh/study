@@ -40,7 +40,8 @@ export function generateToken(user) {
     {
       userId: user._id.toString(),
       username: user.username,
-      role: user.role || 'student',
+      role: user.role || 'user',
+      permissions: user.permissions || [],
     },
     JWT_SECRET,
     { expiresIn: '7d' } // Token valid for 7 days

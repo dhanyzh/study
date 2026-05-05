@@ -10,7 +10,7 @@ import { requireAdmin } from '@/lib/adminAuth';
 import User from '@/models/User';
 
 export async function GET(request) {
-  const auth = requireAdmin(request);
+  const auth = requirePermission(request, 'manage_users');
   if (!auth.authorized) {
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   }
@@ -26,7 +26,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const auth = requireAdmin(request);
+  const auth = requirePermission(request, 'manage_users');
   if (!auth.authorized) {
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   }
@@ -68,7 +68,7 @@ export async function POST(request) {
 }
 
 export async function PATCH(request) {
-  const auth = requireAdmin(request);
+  const auth = requirePermission(request, 'manage_users');
   if (!auth.authorized) {
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   }
@@ -93,7 +93,7 @@ export async function PATCH(request) {
 }
 
 export async function DELETE(request) {
-  const auth = requireAdmin(request);
+  const auth = requirePermission(request, 'manage_users');
   if (!auth.authorized) {
     return NextResponse.json({ error: auth.error }, { status: auth.status });
   }
