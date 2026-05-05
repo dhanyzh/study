@@ -7,7 +7,9 @@ import { comparePassword, generateToken } from '@/lib/auth';
 const AUTHORIZED_USERS = {
   'dhanish': { password: 'dhani123', displayName: 'Dhanish' },
   'theja': { password: 'theja123', displayName: 'Theja' },
-  'fezin': { password: 'fezin123', displayName: 'Fezin' }
+  'fezin': { password: 'fezin123', displayName: 'Fezin' },
+  'sinan': { password: 'sinan123', displayName: 'Sinan' },
+  'dilkash': { password: 'dilkash123', displayName: 'Dilkash' }
 };
 
 export async function POST(request) {

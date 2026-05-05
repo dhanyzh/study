@@ -201,13 +201,17 @@ async function seed() {
     const hash1 = await bcrypt.hash('dhani123', 12);
     const hash2 = await bcrypt.hash('theja123', 12);
     const hash3 = await bcrypt.hash('fezin123', 12);
+    const hash4 = await bcrypt.hash('sinan123', 12);
+    const hash5 = await bcrypt.hash('dilkash123', 12);
 
     await User.create([
       { username: 'dhanish', passwordHash: hash1, displayName: 'Dhanish', isDevUser: true, email: 'dhanish@dev.local' },
       { username: 'theja', passwordHash: hash2, displayName: 'Theja', isDevUser: true, email: 'theja@dev.local' },
       { username: 'fezin', passwordHash: hash3, displayName: 'Fezin', isDevUser: true, email: 'fezin@dev.local' },
+      { username: 'sinan', passwordHash: hash4, displayName: 'Sinan', isDevUser: true, email: 'sinan@dev.local' },
+      { username: 'dilkash', passwordHash: hash5, displayName: 'Dilkash', isDevUser: true, email: 'dilkash@dev.local' },
     ]);
-    console.log('👤 Demo users created (dhanish, theja, fezin)');
+    console.log('👤 Demo users created (dhanish, theja, fezin, sinan, dilkash)');
 
     // Seed subjects
     const subjects = await Subject.insertMany(SUBJECTS_DATA);
