@@ -10,7 +10,7 @@ const AUTHORIZED_USERS = {
   'fezin': { password: 'fezin123', displayName: 'Fezin', role: 'student' },
   'sinan': { password: 'sinan123', displayName: 'Sinan', role: 'student' },
   'dilkash': { password: 'dilkash123', displayName: 'Dilkash', role: 'student' },
-  'admindhanis': { password: 'dhani123', displayName: 'Admin Dhanish', role: 'admin' },
+  'admindhanis': { password: 'dhani123', displayName: 'Admin Dhanish', role: 'super_admin' },
   'admindilkash': { password: 'dilkash123', displayName: 'Admin Dilkash', role: 'admin' },
 };
 
