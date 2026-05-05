@@ -29,11 +29,11 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  // Load token from localStorage on mount
+  // Load token from sessionStorage on mount
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const savedToken = localStorage.getItem('studyos_token');
+      const savedToken = sessionStorage.getItem('studyos_token');
       if (savedToken) {
         if (!cancelled) await fetchUser(savedToken);
       } else {
@@ -55,7 +55,7 @@ export function AuthProvider({ children }) {
     });
     const data = await res.json();
     if (res.ok) {
-      localStorage.setItem('studyos_token', data.token);
+      sessionStorage.setItem('studyos_token', data.token);
       setToken(data.token);
       setUser(data.user);
       return { success: true, user: data.user };
@@ -71,7 +71,7 @@ export function AuthProvider({ children }) {
     });
     const data = await res.json();
     if (res.ok) {
-      localStorage.setItem('studyos_token', data.token);
+      sessionStorage.setItem('studyos_token', data.token);
       setToken(data.token);
       setUser(data.user);
       return { success: true };
@@ -80,6 +80,8 @@ export function AuthProvider({ children }) {
   }, []);
 
   const logout = useCallback(() => {
+    sessionStorage.removeItem('studyos_token');
+    // Also remove from localStorage in case it was set previously
     localStorage.removeItem('studyos_token');
     setToken(null);
     setUser(null);
