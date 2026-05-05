@@ -21,12 +21,12 @@ export default function AdminLayout({ children }) {
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login');
-    } else if (!loading && user && user.role !== 'admin') {
+    } else if (!loading && user && (user.role !== 'admin' && user.role !== 'super_admin')) {
       router.push('/dashboard');
     }
   }, [user, loading, router]);
 
-  if (loading || !user || user.role !== 'admin') {
+  if (loading || !user || (user.role !== 'admin' && user.role !== 'super_admin')) {
     return (
       <div className="spinner-container">
         <div className="spinner"></div>
@@ -60,6 +60,15 @@ export default function AdminLayout({ children }) {
                 <span className="nav-icon">{item.icon}</span> {item.label}
               </Link>
             ))}
+            {user.role === 'super_admin' && (
+              <Link
+                href="/admin/admins"
+                className={`nav-item ${pathname === '/admin/admins' ? 'active' : ''}`}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <span className="nav-icon">🔑</span> Admins
+              </Link>
+            )}
           </div>
 
           <div className="sidebar-section">
@@ -76,7 +85,9 @@ export default function AdminLayout({ children }) {
           </div>
           <div className="sidebar-user-info">
             <div className="sidebar-user-name">{user.displayName}</div>
-            <div className="sidebar-user-role" style={{ color: '#EF4444' }}>Admin</div>
+            <div className="sidebar-user-role" style={{ color: '#EF4444' }}>
+              {user.role === 'super_admin' ? 'Super Admin' : 'Admin'}
+            </div>
           </div>
           <button 
             onClick={() => { logout(); setSidebarOpen(false); }} 
