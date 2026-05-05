@@ -79,9 +79,8 @@ export function requirePermission(request, permission) {
     return { authorized: true, payload, error: null, status: 200 };
   }
 
+  // Admin permission check
   if (payload.role === 'admin') {
-    // Admins must have the specific permission in their JWT/payload
-    // Note: We should ensure permissions are included in the JWT payload during login
     const permissions = payload.permissions || [];
     if (permissions.includes(permission)) {
       return { authorized: true, payload, error: null, status: 200 };

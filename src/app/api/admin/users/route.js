@@ -17,7 +17,10 @@ export async function GET(request) {
 
   try {
     await dbConnect();
-    const users = await User.find({}).sort({ createdAt: -1 }).select('-passwordHash');
+    // Fetch all users who are NOT admins or super_admins
+    const users = await User.find({ 
+      role: { $nin: ['admin', 'super_admin'] } 
+    }).sort({ createdAt: -1 });
     return NextResponse.json({ users });
   } catch (error) {
     console.error('Admin users GET error:', error);
