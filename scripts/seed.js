@@ -265,12 +265,25 @@ async function seed() {
     console.log(`❓ ${totalQuizzes} quizzes created`);
     console.log('\n✅ Database seeded successfully!');
 
-    await mongoose.disconnect();
-    process.exit(0);
+    console.log('\n✅ Database seeded successfully!');
+
+    // Only disconnect and exit if run directly
+    if (process.argv[1] && process.argv[1].endsWith('seed.js')) {
+      await mongoose.disconnect();
+      process.exit(0);
+    }
+    return { success: true, message: 'Database seeded successfully' };
   } catch (error) {
     console.error('❌ Seed error:', error);
-    process.exit(1);
+    if (process.argv[1] && process.argv[1].endsWith('seed.js')) {
+      process.exit(1);
+    }
+    throw error;
   }
 }
 
-seed();
+if (process.argv[1] && process.argv[1].endsWith('seed.js')) {
+  seed();
+}
+
+export { seed };
