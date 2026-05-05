@@ -8,6 +8,11 @@ export default function AdminUsers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [actionLoading, setActionLoading] = useState('');
+  
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newUser, setNewUser] = useState({ username: '', password: '', displayName: '', role: 'student' });
+  const [addError, setAddError] = useState('');
+  const [addLoading, setAddLoading] = useState(false);
 
   const fetchUsers = useCallback(async () => {
     try {
@@ -67,6 +72,33 @@ export default function AdminUsers() {
     }
   };
 
+  const handleAddUser = async (e) => {
+    e.preventDefault();
+    setAddError('');
+    setAddLoading(true);
+
+    try {
+      const res = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(newUser),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setUsers(prev => [data.user, ...prev]);
+        setShowAddForm(false);
+        setNewUser({ username: '', password: '', displayName: '', role: 'student' });
+      } else {
+        setAddError(data.error || 'Failed to create user.');
+      }
+    } catch (err) {
+      setAddError('Could not connect to the server.');
+    } finally {
+      setAddLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', padding: '80px' }}>
@@ -77,10 +109,76 @@ export default function AdminUsers() {
 
   return (
     <div>
-      <div className="dashboard-header">
-        <h1>👥 User Management</h1>
-        <p>{users.length} registered user{users.length !== 1 ? 's' : ''}</p>
+      <div className="dashboard-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <h1>👥 User Management</h1>
+          <p>{users.length} registered user{users.length !== 1 ? 's' : ''}</p>
+        </div>
+        <button 
+          className="btn btn-primary"
+          onClick={() => setShowAddForm(!showAddForm)}
+        >
+          {showAddForm ? 'Cancel' : '+ Add User'}
+        </button>
       </div>
+
+      {showAddForm && (
+        <div className="card" style={{ marginBottom: '24px', borderLeft: '4px solid var(--accent)' }}>
+          <h3 style={{ marginBottom: '16px', fontSize: '1.1rem' }}>Create New User</h3>
+          {addError && <div className="auth-error" style={{ marginBottom: '16px', padding: '10px' }}>⚠️ {addError}</div>}
+          
+          <form onSubmit={handleAddUser} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div>
+              <label className="form-label">Username *</label>
+              <input 
+                type="text" 
+                className="form-input" 
+                required 
+                value={newUser.username}
+                onChange={e => setNewUser({...newUser, username: e.target.value})}
+                placeholder="e.g. johndoe"
+              />
+            </div>
+            <div>
+              <label className="form-label">Password *</label>
+              <input 
+                type="text" 
+                className="form-input" 
+                required 
+                value={newUser.password}
+                onChange={e => setNewUser({...newUser, password: e.target.value})}
+                placeholder="Secure password"
+              />
+            </div>
+            <div>
+              <label className="form-label">Display Name</label>
+              <input 
+                type="text" 
+                className="form-input" 
+                value={newUser.displayName}
+                onChange={e => setNewUser({...newUser, displayName: e.target.value})}
+                placeholder="e.g. John Doe"
+              />
+            </div>
+            <div>
+              <label className="form-label">Role</label>
+              <select 
+                className="form-input" 
+                value={newUser.role}
+                onChange={e => setNewUser({...newUser, role: e.target.value})}
+              >
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div style={{ gridColumn: '1 / -1', marginTop: '8px' }}>
+              <button type="submit" className="btn btn-primary" disabled={addLoading}>
+                {addLoading ? 'Creating...' : 'Create User'}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
 
       {error && <div className="auth-error" style={{ marginBottom: '16px' }}>⚠️ {error}</div>}
 

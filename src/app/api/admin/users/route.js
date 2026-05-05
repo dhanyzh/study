@@ -25,6 +25,48 @@ export async function GET(request) {
   }
 }
 
+export async function POST(request) {
+  const auth = requireAdmin(request);
+  if (!auth.authorized) {
+    return NextResponse.json({ error: auth.error }, { status: auth.status });
+  }
+
+  try {
+    const { username, password, email, role, displayName } = await request.json();
+
+    if (!username || !password) {
+      return NextResponse.json({ error: 'Username and password are required.' }, { status: 400 });
+    }
+
+    await dbConnect();
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ username: username.toLowerCase() });
+    if (existingUser) {
+      return NextResponse.json({ error: 'Username is already taken.' }, { status: 400 });
+    }
+
+    // Dynamic import to avoid circular dependencies if any, but regular import works since we don't have cycles
+    const { hashPassword } = await import('@/lib/auth');
+    const passwordHash = await hashPassword(password);
+
+    const newUser = await User.create({
+      username: username.toLowerCase(),
+      passwordHash,
+      email: email || undefined,
+      role: role || 'student',
+      displayName: displayName || username
+    });
+
+    const userObj = newUser.toJSON();
+
+    return NextResponse.json({ user: userObj, message: 'User created successfully.' });
+  } catch (error) {
+    console.error('Admin users POST error:', error);
+    return NextResponse.json({ error: 'Failed to create user.', details: error.message }, { status: 500 });
+  }
+}
+
 export async function PATCH(request) {
   const auth = requireAdmin(request);
   if (!auth.authorized) {

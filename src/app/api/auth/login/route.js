@@ -27,19 +27,10 @@ export async function POST(request) {
     }
 
     const cleanUsername = username.toLowerCase().trim();
+    let user = null;
+    let authEntry = AUTHORIZED_USERS[cleanUsername];
 
-    // 1. Strict Restriction Check
-    if (!AUTHORIZED_USERS[cleanUsername] || AUTHORIZED_USERS[cleanUsername].password !== password) {
-      return NextResponse.json(
-        { error: 'Access Denied. Invalid credentials or unauthorized user.' },
-        { status: 401 }
-      );
-    }
-
-    const authEntry = AUTHORIZED_USERS[cleanUsername];
-    let user;
-
-    // 2. Try Database Connection
+    // 1. Try Database Connection FIRST
     try {
       await dbConnect();
       user = await User.findOne({ username: cleanUsername });
@@ -47,23 +38,26 @@ export async function POST(request) {
       if (user) {
         // Verify against DB hash if user exists
         const isValid = await comparePassword(password, user.passwordHash);
-        if (isValid) {
-          user.lastLogin = new Date();
-          // Sync role from authorized list
-          if (user.role !== authEntry.role) {
-            user.role = authEntry.role;
-          }
-          await user.save();
-        } else {
-          // Fallback to strict list if DB hash fails for some reason
+        if (!isValid) {
+          return NextResponse.json({ error: 'Invalid username or password.' }, { status: 401 });
         }
+        user.lastLogin = new Date();
+        await user.save();
       }
     } catch (dbError) {
-      console.warn('Database not connected. Using Local Auth Mode for authorized user.');
+      console.warn('Database error or not connected. Using Local Auth Mode fallback.');
     }
 
-    // 3. Local Auth Mode (Fallback if DB is missing or empty but user is in authorized list)
+    // 2. Fallback to Local Auth Mode if not found in DB
     if (!user) {
+      if (!authEntry || authEntry.password !== password) {
+        return NextResponse.json(
+          { error: 'Invalid username or password.' },
+          { status: 401 }
+        );
+      }
+      
+      // Found in fallback list
       user = {
         _id: `user_${cleanUsername}_123`,
         username: cleanUsername,
