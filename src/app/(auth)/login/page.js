@@ -65,9 +65,7 @@ export default function Login() {
           </button>
         </form>
         
-        <div className="auth-footer">
-          <p>Authorized accounts: dhanish / dhani123, theja / theja123 OR fezin / fezin123</p>
-        </div>
+
       </div>
     </div>
   );
