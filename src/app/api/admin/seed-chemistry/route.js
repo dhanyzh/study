@@ -3,7 +3,7 @@ import { requireAdmin } from '@/lib/adminAuth';
 import dbConnect from '@/lib/db';
 import Quiz from '@/models/Quiz';
 import Subject from '@/models/Subject';
-import { chemistryQuestions } from '@/components/ChemistryModule1Quiz';
+import { chemistryQuestions } from '@/lib/chemistryData';
 
 export async function POST(request) {
   const auth = requireAdmin(request);
