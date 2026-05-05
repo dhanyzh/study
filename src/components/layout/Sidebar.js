@@ -61,6 +61,16 @@ export default function Sidebar() {
               <span className="nav-icon">🗄️</span> SQL Compiler
             </Link>
           </div>
+
+          {user?.role === 'admin' && (
+            <div className="sidebar-section">
+              <div className="sidebar-section-title">Administration</div>
+              <Link href="/admin" className={`nav-item ${pathname === '/admin' ? 'active' : ''}`} onClick={() => setIsOpen(false)} style={{ background: 'rgba(239,68,68,0.08)', borderColor: 'rgba(239,68,68,0.2)' }}>
+                <span className="nav-icon">🛡️</span> Admin Panel
+                <span className="nav-badge" style={{ background: '#EF4444' }}>GO</span>
+              </Link>
+            </div>
+          )}
         </div>
 
         {user && (
