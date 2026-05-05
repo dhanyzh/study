@@ -63,7 +63,7 @@ const Quiz = mongoose.models.Quiz || mongoose.model('Quiz', QuizSchema);
 
 // ─── Seed Data ───
 
-const SUBJECTS_DATA = [
+export const SUBJECTS_DATA = [
   { name: 'DSA', slug: 'dsa', icon: '🧮', color: '#6C63FF', description: 'Data Structures & Algorithms', order: 0 },
   { name: 'Electronics', slug: 'electronics', icon: '⚡', color: '#FF6B6B', description: 'Digital & Analog Electronics', order: 1 },
   { name: 'Chemistry', slug: 'chemistry', icon: '🧪', color: '#4ECDC4', description: 'Organic, Inorganic & Physical Chemistry', order: 2 },
@@ -71,7 +71,7 @@ const SUBJECTS_DATA = [
   { name: 'Excel', slug: 'excel', icon: '📊', color: '#2ECC71', description: 'Microsoft Excel Mastery', order: 4 },
 ];
 
-const CHAPTERS_DATA = {
+export const CHAPTERS_DATA = {
   dsa: [
     { title: 'Arrays & Strings', slug: 'arrays-strings', order: 0, description: 'Fundamental data structures',
       topics: [
