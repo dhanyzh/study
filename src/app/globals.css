@@ -493,6 +493,28 @@ a:hover { text-decoration: underline; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .spinner { width: 24px; height: 24px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
 
+/* ─── Skeletons ─── */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-hover) 25%, var(--border) 50%, var(--bg-hover) 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+.skeleton-card {
+  width: 100%;
+  border-radius: var(--radius);
+}
+@keyframes skeletonLoading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Performance ─── */
+.card, .md-notes, .subject-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
 /* Mobile menu toggle */
 .mobile-toggle {
   display: none; position: fixed; top: 16px; left: 16px; z-index: 200;

@@ -12,12 +12,17 @@ export async function GET(request) {
     await dbConnect();
     const { searchParams } = new URL(request.url);
     const chapterId = searchParams.get('chapterId');
+    const subjectId = searchParams.get('subjectId');
 
-    if (!chapterId) {
-      return NextResponse.json({ error: 'chapterId is required.' }, { status: 400 });
+    if (!chapterId && !subjectId) {
+      return NextResponse.json({ error: 'chapterId or subjectId is required.' }, { status: 400 });
     }
 
-    const rawTopics = await Topic.find({ chapterId }).sort({ order: 1 }).lean();
+    let query = {};
+    if (chapterId) query.chapterId = chapterId;
+    else if (subjectId) query.subjectId = subjectId;
+
+    const rawTopics = await Topic.find(query).sort({ order: 1 }).lean();
     const topics = sanitizeObject(rawTopics);
     return NextResponse.json({ topics });
   } catch (error) {

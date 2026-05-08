@@ -21,29 +21,36 @@ export default function SubjectPage({ params }) {
   const subject = SUBJECTS.find(s => s.slug === slug);
 
   useEffect(() => {
-    async function fetchChapters() {
+    async function fetchSubjectData() {
       try {
+        // 1. Get the subject first to get the ID
         const res = await fetch(`/api/subjects`);
-        const data = await res.json();
+        const { subjects: dbSubjects } = await res.json();
+        const dbSubject = dbSubjects.find(s => s.slug === slug);
         
-        if (data.subjects && Array.isArray(data.subjects)) {
-          const dbSubject = data.subjects.find(s => s.slug === slug);
-          
-          if (dbSubject) {
-            setDbSubjectId(dbSubject._id);
-            const chapRes = await fetch(`/api/chapters?subjectId=${dbSubject._id}`);
-            const { chapters: dbChapters } = await chapRes.json();
-          
-          // Fetch topics for each chapter
-          const chaptersWithTopics = await Promise.all(dbChapters.map(async (chap) => {
-            const topRes = await fetch(`/api/topics?chapterId=${chap._id}`);
-            const { topics } = await topRes.json();
-            return { ...chap, topics };
-          }));
-          
-          setChapters(chaptersWithTopics);
-          }
+        if (!dbSubject) {
+          setLoading(false);
+          return;
         }
+
+        setDbSubjectId(dbSubject._id);
+
+        // 2. Fetch ALL chapters and ALL topics for this subject in parallel
+        const [chapRes, topRes] = await Promise.all([
+          fetch(`/api/chapters?subjectId=${dbSubject._id}`),
+          fetch(`/api/topics?subjectId=${dbSubject._id}`) // Use subjectId to get all topics at once
+        ]);
+
+        const { chapters: dbChapters } = await chapRes.json();
+        const { topics: allTopics } = await topRes.json();
+
+        // 3. Group topics by chapterId
+        const chaptersWithTopics = dbChapters.map(chap => ({
+          ...chap,
+          topics: allTopics.filter(t => String(t.chapterId) === String(chap._id))
+        }));
+
+        setChapters(chaptersWithTopics);
       } catch (err) {
         console.error('Failed to load subject data', err);
       } finally {
@@ -51,7 +58,7 @@ export default function SubjectPage({ params }) {
       }
     }
     
-    if (token) fetchChapters();
+    if (token) fetchSubjectData();
   }, [slug, token]);
 
   useEffect(() => {
@@ -133,7 +140,11 @@ export default function SubjectPage({ params }) {
       </div>
 
       {loading ? (
-        <div className="spinner" style={{ margin: '40px auto' }}></div>
+        <div className="skeleton-container" style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+          {[1, 2, 3, 4].map(i => (
+            <div key={i} className="skeleton skeleton-card" style={{ height: '180px' }}></div>
+          ))}
+        </div>
       ) : activeTab === 'chapters' ? (
         chapters.length === 0 ? (
           <div className="card" style={{ textAlign: 'center', padding: '40px' }}>

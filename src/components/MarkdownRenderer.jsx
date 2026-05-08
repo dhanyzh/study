@@ -1,12 +1,8 @@
-'use client';
+import { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-/**
- * Renders markdown content with proper styling for study notes.
- * Supports: headings, tables, lists, bold, inline code, blockquotes, horizontal rules.
- */
-export default function MarkdownRenderer({ content }) {
+const MarkdownRenderer = memo(({ content }) => {
   if (!content) return null;
 
   return (
@@ -16,4 +12,6 @@ export default function MarkdownRenderer({ content }) {
       </ReactMarkdown>
     </div>
   );
-}
+});
+
+export default MarkdownRenderer;

@@ -72,7 +72,10 @@ export default function TopicPage({ params }) {
       </div>
 
       {loading ? (
-        <div className="spinner"></div>
+        <div className="skeleton-container">
+          <div className="skeleton skeleton-card" style={{ height: '300px', marginBottom: '16px' }}></div>
+          <div className="skeleton skeleton-card" style={{ height: '200px' }}></div>
+        </div>
       ) : activeTab === 'notes' ? (
         <div className="notes-content">
           {notes.length > 0 ? (
