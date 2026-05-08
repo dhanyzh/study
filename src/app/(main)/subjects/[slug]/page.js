@@ -169,26 +169,49 @@ export default function SubjectPage({ params }) {
       ) : activeTab === 'notes' ? (
         <div style={{ marginTop: 14 }}>
           {slug === 'chemistry' && (
-            <a
-              href="/uploads/chemistry-module1.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card"
-              style={{
-                display: 'flex', alignItems: 'center', gap: 14,
-                padding: '16px 22px', marginBottom: 16, cursor: 'pointer',
-                background: 'linear-gradient(135deg, rgba(78,205,196,0.1), rgba(108,99,255,0.1))',
-                border: '1px solid rgba(78,205,196,0.25)',
-                textDecoration: 'none', color: 'inherit',
-              }}
-            >
-              <span style={{ fontSize: '2rem' }}>📄</span>
-              <div>
-                <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Module 1: Materials Chemistry for Computing Systems</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: 2 }}>Original PDF — Click to view or download</div>
-              </div>
-              <span style={{ marginLeft: 'auto', color: 'var(--info)', fontSize: '0.85rem', fontWeight: 600 }}>View PDF ↗</span>
-            </a>
+            <>
+              <a
+                href="/uploads/chemistry-module1.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 14,
+                  padding: '16px 22px', marginBottom: 16, cursor: 'pointer',
+                  background: 'linear-gradient(135deg, rgba(78,205,196,0.1), rgba(108,99,255,0.1))',
+                  border: '1px solid rgba(78,205,196,0.25)',
+                  textDecoration: 'none', color: 'inherit',
+                }}
+              >
+                <span style={{ fontSize: '2rem' }}>📄</span>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Module 1: Materials Chemistry for Computing Systems</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: 2 }}>Original PDF — Click to view or download</div>
+                </div>
+                <span style={{ marginLeft: 'auto', color: 'var(--info)', fontSize: '0.85rem', fontWeight: 600 }}>View PDF ↗</span>
+              </a>
+
+              <a
+                href="/uploads/chemistry-module3.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 14,
+                  padding: '16px 22px', marginBottom: 16, cursor: 'pointer',
+                  background: 'linear-gradient(135deg, rgba(255,107,107,0.1), rgba(108,99,255,0.1))',
+                  border: '1px solid rgba(255,107,107,0.25)',
+                  textDecoration: 'none', color: 'inherit',
+                }}
+              >
+                <span style={{ fontSize: '2rem' }}>📄</span>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Module 3: Nanotechnology</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: 2 }}>Original PDF — Click to view or download</div>
+                </div>
+                <span style={{ marginLeft: 'auto', color: 'var(--info)', fontSize: '0.85rem', fontWeight: 600 }}>View PDF ↗</span>
+              </a>
+            </>
           )}
           {notesByTopic.length === 0 ? (
             <div className="card" style={{ color: 'var(--text-secondary)', padding: 24 }}>No notes yet for this subject.</div>
