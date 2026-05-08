@@ -13,91 +13,90 @@ import Note from '@/models/Note';
 const TOPIC_NOTES = [  {
     title: 'Overview of Materials Chemistry',
     slug: 'overview-of-materials-chemistry',
-    order: 1,
-    content: `# Overview of Materials Chemistry
+    order: 1,      content: `# Overview of Materials Chemistry
+    
+## 📌 What Is Materials Chemistry?
 
-## Introduction to Materials Chemistry
+### 🔹 Key Concepts
+- **Materials Chemistry** = study of how the internal structure of a material (atomic arrangement + bonding) determines its physical, chemical & electrical properties.
+- **Interdisciplinary field** integrating chemistry, physics & engineering.
+- Two materials can look identical but behave differently due to different atomic arrangements.
+- By modifying composition or structure -> materials can be tailored for specific tech needs.
 
-### Key Concepts
-- **Materials Chemistry** is the study of how the internal structure of a material, including its atomic arrangement and chemical bonding, determines its physical, chemical, and electrical properties.
-- It is an interdisciplinary field that integrates principles from chemistry, physics, and engineering.
-- Two materials may appear identical externally but behave differently due to variations in their **atomic arrangements**.
-- By modifying the composition or structure of a material, it can be **tailored** to meet specific technological requirements.
-
-### Significance in Computing
-- Every electronic device depends on the selection of **specialized materials**.
-- Computing hardware is fundamentally governed by chemical principles; beneath every software program lies a physical system dictated by materials science.
-- Materials chemistry provides the **scientific foundation** required for selecting and modifying materials used in modern computing.
+### 🔹 Important Points
+- Every electronic device depends on carefully selected materials.
+- Computers are not just code - beneath every program lies hardware governed by chemistry.
+- Materials chemistry provides the scientific foundation for selecting & modifying computing materials.
 
 ---
 
-## Role of Atomic Composition, Bonding, and Structure
+## 📌 Role of Atomic Composition, Bonding & Structure
 
 | Factor | Role | Example |
 |--------|------|---------|
-| **Atomic Composition** | Determines valence electrons for bonding and conduction | Silicon has 4 valence electrons (semiconductor); Copper has delocalized electrons (conductor) |
-| **Chemical Bonding** | Defines electrical behavior | Metallic bonds result in conductors; Covalent bonds in semiconductors; Ionic bonds in insulators |
-| **Structure** | Crystalline vs. Amorphous | Single-crystal Silicon is used in microchips; Amorphous Silicon is used in thin-film transistors |
+| **Atomic Composition** | Determines valence electrons for bonding/conduction | Si has 4 valence e- -> semiconductor; Cu has loose e- -> conductor |
+| **Chemical Bonding** | Defines electrical behavior | Metallic -> conductor; Covalent -> semiconductor; Ionic -> insulator |
+| **Structure** | Crystalline vs Amorphous | Single-crystal Si -> microchips; Amorphous -> thin-film transistors |
 
-- **Metallic bonding** allows for free electron movement, leading to high electrical conductivity.
-- **Covalent bonding** restricts electron movement but allows it to be controlled, which is the basis for semiconductors.
-- **Ionic bonding** involves strongly bound electrons, resulting in insulating properties.
-- **Crystalline structures** have a regular repeating pattern, ensuring predictable electron motion.
-- **Amorphous structures** lack long-range order, providing flexibility for applications such as displays.
+- **Metallic bonding** -> free electron movement -> high conductivity.
+- **Covalent bonding** -> restricted but controllable -> semiconductors.
+- **Ionic bonding** -> strongly bound electrons -> insulators.
+- **Crystalline**: regular repeating pattern -> predictable electron motion.
+- **Amorphous**: no long-range order -> flexible (displays).
 
 ---
 
-## Classification of Materials in Computing
+## 📌 Classification of Materials in Computing
 
 ### Conductors
-- Conductors allow electrical current to flow easily due to a large number of free or mobile electrons.
-- **Copper (Cu)**: Widely used for its high conductivity and mechanical strength.
-- **Aluminum (Al)**: A lightweight and cost-effective alternative to copper.
-- **Silver (Ag)**: Possesses the **highest** electrical conductivity among all metals.
-- Applications include wiring, integrated circuit (IC) interconnects, and printed circuit board (PCB) copper tracks.
+- Allow current to flow easily - large number of free/mobile electrons.
+- **Copper (Cu)**: High conductivity + mechanical strength.
+- **Aluminum (Al)**: Lightweight + cost-effective.
+- **Silver (Ag)**: Highest electrical conductivity among all metals.
+- **Used in**: wiring, IC interconnects, PCB copper tracks.
 
 ### Semiconductors
-- Semiconductors have electrical conductivity that falls between that of conductors and insulators.
-- Their most important feature is that their conductivity can be precisely controlled.
-- **Silicon (Si)**: The most widely used semiconductor due to its abundance, low cost, thermal stability, and ability to form a stable oxide (SiO2).
-- **Germanium (Ge)**: Offers high carrier mobility but has poor thermal stability.
-- **Gallium Arsenide (GaAs)**: Provides higher electron mobility for high-speed and radio-frequency (RF) applications.
+- Conductivity lies between conductors and insulators.
+- **Most important**: conductivity can be precisely controlled.
+- **Silicon (Si)**: Abundant, cheap, thermally stable, forms SiO2.
+- **Germanium (Ge)**: High carrier mobility, poor thermal stability.
+- **Gallium Arsenide (GaAs)**: Higher electron mobility - high-speed/RF.
 
 ### Insulators
-- Insulators strongly resist the flow of electrical current because their electrons are tightly bound.
-- **Silicon Dioxide (SiO2)**: Used as a gate oxide and dielectric in integrated circuits.
-- **Glass**: Common in display panels.
-- **Ceramics**: Utilized for electrical insulation and heat resistance.
-- **Polymers**: Used for cable insulation and protective coatings.
+- Strongly resist current flow - electrons tightly bound.
+- **SiO2**: gate oxide, dielectric in ICs.
+- **Glass**: display panels.
+- **Ceramics**: electrical insulation + heat resistance.
+- **Polymers**: cable insulation, coatings.
 
 ---
 
-## Electronic, Magnetic, and Nanomaterials
+## 📌 Electronic, Magnetic & Nanomaterials
 
 ### Electronic Materials
-- Materials whose conductivity can be controlled to create components like transistors and integrated circuits.
-- **Analogy**: If conductors are like wide pipes and insulators are like blocked pipes, semiconductors act as **adjustable valves**.
+- Conductivity can be controlled -> transistors, ICs.
+- **Analogy**: Conductors = wide pipes; Insulators = blocked; Semiconductors = adjustable valves.
 
 ### Magnetic Materials
-- Used for data storage by utilizing magnetic domains to represent binary data (0 and 1).
-- **Ferromagnetic**: Strongly attracted to magnets (used in hard disks).
-- **Paramagnetic**: Weakly attracted to magnets.
-- **Diamagnetic**: Slightly repelled by magnets.
+- Used for data storage (magnetic domains -> binary 0/1).
+- **Ferromagnetic**: strongly attracted (hard disks).
+- **Paramagnetic**: weakly attracted.
+- **Diamagnetic**: slightly repelled.
 
-### Nanomaterials (1–100 nm)
-- These materials exhibit unique properties that differ from their bulk counterparts.
-- They have a high surface-to-volume ratio and are influenced by quantum effects.
-- **Graphene**: Offers exceptional conductivity and is a key material for future computing technologies.
-- Applications include high-performance transistors, sensors, and energy storage devices.
+### Nanomaterials (1-100 nm)
+- Unique properties different from bulk.
+- High surface-to-volume ratio + quantum effects.
+- **Graphene** -> exceptional conductivity -> future computing.
+- **Applications**: transistors, sensors, energy storage.
 
 ---
 
-## Summary and Revision
-- Materials Chemistry links atomic structure to material properties and technological applications.
-- The three primary material types are: Conductors (free electrons), Semiconductors (controlled conductivity), and Insulators (bound electrons).
-- Electronic materials act as adjustable valves for electrical current.
-- Magnetic materials are the foundation of binary data storage.
-- Nanomaterials operate at the quantum scale, driving the future of technology.`,
+## 🧠 Quick Revision
+- **Materials Chemistry** = atomic structure -> properties -> applications.
+- **3 material types**: Conductor (free e-) | Semiconductor (controlled) | Insulator (bound e-).
+- **Electronic materials** = adjustable valves for current.
+- **Magnetic materials** -> binary storage.
+- **Nanomaterials** -> quantum scale -> future tech.`,
     },
     {
       title: 'Basic Chemical Principles',
