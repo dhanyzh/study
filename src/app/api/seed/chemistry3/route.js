@@ -196,7 +196,7 @@ export async function POST() {
       );
 
       await Note.findOneAndUpdate(
-        { topicId: topic._id, source: 'pdf', userId: null },
+        { topicId: topic._id, userId: null },
         {
           topicId: topic._id,
           content: topicData.content,

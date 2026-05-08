@@ -525,7 +525,7 @@ async function seed() {
 
     // Upsert the system note for this topic
     await Note.findOneAndUpdate(
-      { topicId: topic._id, source: 'pdf', userId: null },
+      { topicId: topic._id, userId: null },
       {
         topicId: topic._id,
         content: topicData.content,
