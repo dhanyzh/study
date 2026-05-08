@@ -397,16 +397,6 @@ The reactivity of metals from most to least reactive:
 - **Processing**: Silicon remains the standard due to its versatile properties and SiO2 layer.
 - **Next-Gen**: Graphene, carbon nanotubes, and superconductors are poised to overcome silicon's physical limits.
 - **Future Paradigms**: Neuromorphic computing, Spintronics, and 3D ICs are defining the next era of hardware.`,
-    },
-able Computing** | Biodegradable, recyclable semiconductors |
-
----
-
-## 🧠 Quick Revision
-- HDD: magnetic alloys | SSD: Si + polysilicon + oxides
-- Optical: polycarbonate + metals | DNA: A,T,C,G (future)
-- Beyond Si: Graphene (ultra-fast), CNTs (low power), Superconductors (zero R)
-- Future: Neuromorphic, Spintronics, 3D ICs, Sustainable`,
   },
 ];
 
