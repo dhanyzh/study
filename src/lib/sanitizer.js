@@ -19,8 +19,15 @@ export function sanitizeString(str) {
     .replace(/ðŸš€/g, '🚀')
     .replace(/ðŸ” /g, '🔍')
     .replace(/ðŸ“ /g, '📝')
+    .replace(/ðŸ“Œ/g, '📌')
+    .replace(/ðŸ”¹/g, '🔹')
+    .replace(/ðŸ§ /g, '🧠')
     .replace(/ðŸ§¬/g, '🧪')
-    .replace(/âœ…/g, '✅')
+    .replace(/â†'/g, '->')
+    .replace(/â†’/g, '->')
+    .replace(/eâ»/g, 'e-')
+    .replace(/e⁻/g, 'e-')
+    .replace(/Â/g, '')
     .trim();
 }
 

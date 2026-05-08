@@ -15,22 +15,22 @@ const TOPIC_NOTES = [  {
     slug: 'overview-of-materials-chemistry',
     order: 1,      content: `# Overview of Materials Chemistry
     
-## 📌 What Is Materials Chemistry?
+## [Note] What Is Materials Chemistry?
 
-### 🔹 Key Concepts
+### [Key Concepts]
 - **Materials Chemistry** = study of how the internal structure of a material (atomic arrangement + bonding) determines its physical, chemical & electrical properties.
 - **Interdisciplinary field** integrating chemistry, physics & engineering.
 - Two materials can look identical but behave differently due to different atomic arrangements.
 - By modifying composition or structure -> materials can be tailored for specific tech needs.
 
-### 🔹 Important Points
+### [Important Points]
 - Every electronic device depends on carefully selected materials.
 - Computers are not just code - beneath every program lies hardware governed by chemistry.
 - Materials chemistry provides the scientific foundation for selecting & modifying computing materials.
 
 ---
 
-## 📌 Role of Atomic Composition, Bonding & Structure
+## [Note] Role of Atomic Composition, Bonding & Structure
 
 | Factor | Role | Example |
 |--------|------|---------|
@@ -46,7 +46,7 @@ const TOPIC_NOTES = [  {
 
 ---
 
-## 📌 Classification of Materials in Computing
+## [Note] Classification of Materials in Computing
 
 ### Conductors
 - Allow current to flow easily - large number of free/mobile electrons.
@@ -71,7 +71,7 @@ const TOPIC_NOTES = [  {
 
 ---
 
-## 📌 Electronic, Magnetic & Nanomaterials
+## [Note] Electronic, Magnetic & Nanomaterials
 
 ### Electronic Materials
 - Conductivity can be controlled -> transistors, ICs.
@@ -91,7 +91,7 @@ const TOPIC_NOTES = [  {
 
 ---
 
-## 🧠 Quick Revision
+## [Revision] Quick Revision
 - **Materials Chemistry** = atomic structure -> properties -> applications.
 - **3 material types**: Conductor (free e-) | Semiconductor (controlled) | Insulator (bound e-).
 - **Electronic materials** = adjustable valves for current.
