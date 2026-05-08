@@ -1,13 +1,7 @@
 /**
- * POST /api/seed/chemistry3 — Seed Chemistry Module 3 into the database
+ * Seed Module 3 directly to production
  */
-
-import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/db';
-import Subject from '@/models/Subject';
-import Chapter from '@/models/Chapter';
-import Topic from '@/models/Topic';
-import Note from '@/models/Note';
+import mongoose from 'mongoose';
 
 const TOPIC_NOTES = [
   {
@@ -135,89 +129,136 @@ The future of computing relies on overcoming the fabrication and stability chall
 - **Quantum Computing**: Utilizing quantum dots and other nanostructures as qubits to achieve exponential processing power.
 - **Key Advantages**: These advancements promise ultra-small device fabrication, high-speed operations, drastically reduced power consumption, and unprecedented data storage capacities.`,
   }
-
 ];
 
-export async function GET() {
-  return POST();
-}
+// ── Schemas (inline to avoid ESM import issues) ──────────────────
+const SubjectSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true },
+  slug: { type: String, required: true, unique: true, lowercase: true },
+  icon: { type: String, default: '📚' },
+  color: { type: String, default: '#6C63FF' },
+  description: { type: String, default: '' },
+  order: { type: Number, default: 0 },
+});
+const Subject = mongoose.models.Subject || mongoose.model('Subject', SubjectSchema);
 
-export async function POST() {
+const ChapterSchema = new mongoose.Schema({
+  subjectId: { type: mongoose.Schema.Types.ObjectId, ref: 'Subject', required: true },
+  title: { type: String, required: true },
+  slug: { type: String, required: true, lowercase: true },
+  order: { type: Number, default: 0 },
+  description: { type: String, default: '' },
+});
+ChapterSchema.index({ subjectId: 1, slug: 1 }, { unique: true });
+const Chapter = mongoose.models.Chapter || mongoose.model('Chapter', ChapterSchema);
+
+const TopicSchema = new mongoose.Schema({
+  chapterId: { type: mongoose.Schema.Types.ObjectId, ref: 'Chapter', required: true },
+  subjectId: { type: mongoose.Schema.Types.ObjectId, ref: 'Subject', required: true },
+  title: { type: String, required: true },
+  slug: { type: String, required: true, lowercase: true },
+  order: { type: Number, default: 0 },
+  videoUrl: { type: String, default: '' },
+});
+TopicSchema.index({ chapterId: 1, slug: 1 }, { unique: true });
+const Topic = mongoose.models.Topic || mongoose.model('Topic', TopicSchema);
+
+const NoteSchema = new mongoose.Schema({
+  topicId: { type: mongoose.Schema.Types.ObjectId, ref: 'Topic', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
+  content: { type: String, default: '' },
+  source: { type: String, enum: ['system', 'user', 'pdf', 'ai'], default: 'system' },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
+NoteSchema.index({ topicId: 1, userId: 1 });
+const Note = mongoose.models.Note || mongoose.model('Note', NoteSchema);
+
+// ── Connect to DB (same logic as src/lib/db.js) ─────────────────
+async function connectDB() {
+  const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/studyos';
   try {
-    await dbConnect();
-
-    // 1. Ensure Chemistry subject exists
-    const subject = await Subject.findOneAndUpdate(
-      { slug: 'chemistry' },
-      {
-        $setOnInsert: {
-          name: 'Chemistry',
-          slug: 'chemistry',
-          icon: '🧪',
-          color: '#4ECDC4',
-          description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures',
-          order: 2,
-        },
-      },
-      { upsert: true, new: true, returnDocument: 'after' }
-    );
-
-    // 2. Upsert Module 3 chapter
-    const chapter = await Chapter.findOneAndUpdate(
-      { subjectId: subject._id, slug: 'module-3-nanotechnology' },
-      {
-        $setOnInsert: {
-          subjectId: subject._id,
-          title: 'Module 3: Nanotechnology',
-          slug: 'module-3-nanotechnology',
-          order: 3,
-          description: 'Nanoscale Properties, Fabrication, Characterization, and Applications in Computing',
-        },
-      },
-      { upsert: true, new: true, returnDocument: 'after' }
-    );
-
-    const results = [];
-
-    // 3. Create topics and notes
-    for (const topicData of TOPIC_NOTES) {
-      const topic = await Topic.findOneAndUpdate(
-        { chapterId: chapter._id, slug: topicData.slug },
-        {
-          $setOnInsert: {
-            chapterId: chapter._id,
-            subjectId: subject._id,
-            title: topicData.title,
-            slug: topicData.slug,
-            order: topicData.order,
-          },
-        },
-        { upsert: true, new: true, returnDocument: 'after' }
-      );
-
-      await Note.findOneAndUpdate(
-        { topicId: topic._id, source: 'pdf', userId: null },
-        {
-          topicId: topic._id,
-          content: topicData.content,
-          source: 'pdf',
-          userId: null,
-          updatedAt: new Date(),
-        },
-        { upsert: true, new: true, returnDocument: 'after' }
-      );
-
-      results.push({ topic: topicData.title, topicId: topic._id });
-    }
-
-    return NextResponse.json({
-      success: true,
-      subject: { _id: subject._id, name: subject.name },
-      chapter: { _id: chapter._id, title: chapter.title },
-      topics: results,
-    });
-  } catch (error) {
-    console.error('Seed error:', error);
-    return NextResponse.json({ error: error.toString() }, { status: 500 });
+    await mongoose.connect(uri, { serverSelectionTimeoutMS: 3000 });
+    console.log('✓ Connected to MongoDB');
+  } catch {
+    console.log('⚠ Primary MongoDB unavailable, trying memory server...');
+    const { MongoMemoryServer } = await import('mongodb-memory-server');
+    const mongod = await MongoMemoryServer.create();
+    await mongoose.connect(mongod.getUri());
+    console.log('✓ Connected to MongoMemoryServer');
   }
 }
+
+async function seed() {
+  await connectDB();
+
+  // 1. Ensure Chemistry subject exists
+  const subject = await Subject.findOneAndUpdate(
+    { slug: 'chemistry' },
+    {
+      $setOnInsert: {
+        name: 'Chemistry',
+        slug: 'chemistry',
+        icon: '🧪',
+        color: '#4ECDC4',
+        description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures',
+        order: 2,
+      },
+    },
+    { upsert: true, new: true, returnDocument: 'after' }
+  );
+
+  // 2. Upsert Module 3 chapter
+  const chapter = await Chapter.findOneAndUpdate(
+    { subjectId: subject._id, slug: 'module-3-nanotechnology' },
+    {
+      $setOnInsert: {
+        subjectId: subject._id,
+        title: 'Module 3: Nanotechnology',
+        slug: 'module-3-nanotechnology',
+        order: 3,
+        description: 'Nanoscale Properties, Fabrication, Characterization, and Applications in Computing',
+      },
+    },
+    { upsert: true, new: true, returnDocument: 'after' }
+  );
+
+  // 3. Create topics and notes
+  for (const topicData of TOPIC_NOTES) {
+    const topic = await Topic.findOneAndUpdate(
+      { chapterId: chapter._id, slug: topicData.slug },
+      {
+        $setOnInsert: {
+          chapterId: chapter._id,
+          subjectId: subject._id,
+          title: topicData.title,
+          slug: topicData.slug,
+          order: topicData.order,
+        },
+      },
+      { upsert: true, new: true, returnDocument: 'after' }
+    );
+
+    await Note.findOneAndUpdate(
+      { topicId: topic._id, source: 'pdf', userId: null },
+      {
+        topicId: topic._id,
+        content: topicData.content,
+        source: 'pdf',
+        userId: null,
+        updatedAt: new Date(),
+      },
+      { upsert: true, new: true, returnDocument: 'after' }
+    );
+    console.log('  ✓ Inserted topic:', topicData.title);
+  }
+
+  console.log('🎉 Chemistry Module 3 seeded to remote database successfully!');
+}
+
+seed()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error('Seed failed:', err);
+    process.exit(1);
+  });

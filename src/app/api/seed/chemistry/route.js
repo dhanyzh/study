@@ -10,370 +10,395 @@ import Chapter from '@/models/Chapter';
 import Topic from '@/models/Topic';
 import Note from '@/models/Note';
 
-const TOPIC_NOTES = [
-  {
+const TOPIC_NOTES = [  {
     title: 'Overview of Materials Chemistry',
     slug: 'overview-of-materials-chemistry',
     order: 1,
-    content: `# 📘 Overview of Materials Chemistry
+    content: `# Overview of Materials Chemistry
 
-## 📌 What Is Materials Chemistry?
+## Introduction to Materials Chemistry
 
-### 🔹 Key Concepts
-- **Materials Chemistry** = study of how the internal structure of a material (atomic arrangement + bonding) determines its physical, chemical & electrical properties
-- Interdisciplinary field integrating chemistry, physics & engineering
-- Two materials can look identical but behave differently due to different **atomic arrangements**
-- By modifying composition or structure → materials can be **tailored** for specific tech needs
+### Key Concepts
+- **Materials Chemistry** is the study of how the internal structure of a material, including its atomic arrangement and chemical bonding, determines its physical, chemical, and electrical properties.
+- It is an interdisciplinary field that integrates principles from chemistry, physics, and engineering.
+- Two materials may appear identical externally but behave differently due to variations in their **atomic arrangements**.
+- By modifying the composition or structure of a material, it can be **tailored** to meet specific technological requirements.
 
-### 🔹 Important Points
-- Every electronic device depends on **carefully selected materials**
-- Computers are not just code — beneath every program lies **hardware governed by chemistry**
-- Materials chemistry provides the **scientific foundation** for selecting & modifying computing materials
+### Significance in Computing
+- Every electronic device depends on the selection of **specialized materials**.
+- Computing hardware is fundamentally governed by chemical principles; beneath every software program lies a physical system dictated by materials science.
+- Materials chemistry provides the **scientific foundation** required for selecting and modifying materials used in modern computing.
 
 ---
 
-## 📌 Role of Atomic Composition, Bonding & Structure
+## Role of Atomic Composition, Bonding, and Structure
 
 | Factor | Role | Example |
 |--------|------|---------|
-| **Atomic Composition** | Determines valence electrons for bonding/conduction | Si has 4 valence e⁻ → semiconductor; Cu has loose e⁻ → conductor |
-| **Chemical Bonding** | Defines electrical behavior | Metallic → conductor; Covalent → semiconductor; Ionic → insulator |
-| **Structure** | Crystalline vs Amorphous | Single-crystal Si → microchips; Amorphous → thin-film transistors |
+| **Atomic Composition** | Determines valence electrons for bonding and conduction | Silicon has 4 valence electrons (semiconductor); Copper has delocalized electrons (conductor) |
+| **Chemical Bonding** | Defines electrical behavior | Metallic bonds result in conductors; Covalent bonds in semiconductors; Ionic bonds in insulators |
+| **Structure** | Crystalline vs. Amorphous | Single-crystal Silicon is used in microchips; Amorphous Silicon is used in thin-film transistors |
 
-- **Metallic bonding** → free electron movement → high conductivity
-- **Covalent bonding** → restricted but controllable → semiconductors
-- **Ionic bonding** → strongly bound electrons → insulators
-- **Crystalline**: regular repeating pattern → predictable electron motion
-- **Amorphous**: no long-range order → flexible (displays)
+- **Metallic bonding** allows for free electron movement, leading to high electrical conductivity.
+- **Covalent bonding** restricts electron movement but allows it to be controlled, which is the basis for semiconductors.
+- **Ionic bonding** involves strongly bound electrons, resulting in insulating properties.
+- **Crystalline structures** have a regular repeating pattern, ensuring predictable electron motion.
+- **Amorphous structures** lack long-range order, providing flexibility for applications such as displays.
 
 ---
 
-## 📌 Classification of Materials in Computing
+## Classification of Materials in Computing
 
 ### Conductors
-- Allow current to flow easily — large number of free/mobile electrons
-- **Copper (Cu)**: High conductivity + mechanical strength
-- **Aluminum (Al)**: Lightweight + cost-effective
-- **Silver (Ag)**: **Highest** electrical conductivity among all metals
-- Used in: wiring, IC interconnects, PCB copper tracks
+- Conductors allow electrical current to flow easily due to a large number of free or mobile electrons.
+- **Copper (Cu)**: Widely used for its high conductivity and mechanical strength.
+- **Aluminum (Al)**: A lightweight and cost-effective alternative to copper.
+- **Silver (Ag)**: Possesses the **highest** electrical conductivity among all metals.
+- Applications include wiring, integrated circuit (IC) interconnects, and printed circuit board (PCB) copper tracks.
 
 ### Semiconductors
-- Conductivity lies **between** conductors and insulators
-- **Most important**: conductivity can be precisely controlled
-- **Silicon (Si)**: Abundant, cheap, thermally stable, forms SiO₂
-- **Germanium (Ge)**: High carrier mobility, poor thermal stability
-- **Gallium Arsenide (GaAs)**: Higher electron mobility — high-speed/RF
+- Semiconductors have electrical conductivity that falls between that of conductors and insulators.
+- Their most important feature is that their conductivity can be precisely controlled.
+- **Silicon (Si)**: The most widely used semiconductor due to its abundance, low cost, thermal stability, and ability to form a stable oxide (SiO2).
+- **Germanium (Ge)**: Offers high carrier mobility but has poor thermal stability.
+- **Gallium Arsenide (GaAs)**: Provides higher electron mobility for high-speed and radio-frequency (RF) applications.
 
 ### Insulators
-- Strongly resist current flow — electrons tightly bound
-- **SiO₂**: gate oxide, dielectric in ICs
-- **Glass**: display panels
-- **Ceramics**: electrical insulation + heat resistance
-- **Polymers**: cable insulation, coatings
+- Insulators strongly resist the flow of electrical current because their electrons are tightly bound.
+- **Silicon Dioxide (SiO2)**: Used as a gate oxide and dielectric in integrated circuits.
+- **Glass**: Common in display panels.
+- **Ceramics**: Utilized for electrical insulation and heat resistance.
+- **Polymers**: Used for cable insulation and protective coatings.
 
 ---
 
-## 📌 Electronic, Magnetic & Nanomaterials
+## Electronic, Magnetic, and Nanomaterials
 
 ### Electronic Materials
-- Conductivity can be controlled → transistors, ICs
-- Analogy: Conductors = wide pipes; Insulators = blocked; Semiconductors = **adjustable valves**
+- Materials whose conductivity can be controlled to create components like transistors and integrated circuits.
+- **Analogy**: If conductors are like wide pipes and insulators are like blocked pipes, semiconductors act as **adjustable valves**.
 
 ### Magnetic Materials
-- Used for data storage (magnetic domains → binary 0/1)
-- **Ferromagnetic**: strongly attracted (hard disks)
-- **Paramagnetic**: weakly attracted
-- **Diamagnetic**: slightly repelled
+- Used for data storage by utilizing magnetic domains to represent binary data (0 and 1).
+- **Ferromagnetic**: Strongly attracted to magnets (used in hard disks).
+- **Paramagnetic**: Weakly attracted to magnets.
+- **Diamagnetic**: Slightly repelled by magnets.
 
 ### Nanomaterials (1–100 nm)
-- Unique properties different from bulk
-- High surface-to-volume ratio + quantum effects
-- **Graphene** → exceptional conductivity → future computing
-- Applications: transistors, sensors, energy storage
+- These materials exhibit unique properties that differ from their bulk counterparts.
+- They have a high surface-to-volume ratio and are influenced by quantum effects.
+- **Graphene**: Offers exceptional conductivity and is a key material for future computing technologies.
+- Applications include high-performance transistors, sensors, and energy storage devices.
 
 ---
 
-## 🧠 Quick Revision
-- Materials Chemistry = atomic structure → properties → applications
-- 3 material types: Conductor (free e⁻) | Semiconductor (controlled) | Insulator (bound e⁻)
-- Electronic materials = adjustable valves for current
-- Magnetic materials → binary storage
-- Nanomaterials → quantum scale → future tech`,
-  },
-  {
-    title: 'Basic Chemical Principles',
-    slug: 'basic-chemical-principles',
-    order: 2,
-    content: `# 📘 Basic Chemical Principles
+## Summary and Revision
+- Materials Chemistry links atomic structure to material properties and technological applications.
+- The three primary material types are: Conductors (free electrons), Semiconductors (controlled conductivity), and Insulators (bound electrons).
+- Electronic materials act as adjustable valves for electrical current.
+- Magnetic materials are the foundation of binary data storage.
+- Nanomaterials operate at the quantum scale, driving the future of technology.`,
+    },
+    {
+      title: 'Basic Chemical Principles',
+      slug: 'basic-chemical-principles',
+      order: 2,
+      content: `# Basic Chemical Principles
 
-## 📌 Atoms — Fundamental Units of Matter
-- **Atom** = smallest particle retaining element's chemical properties
-- **Protons** (+): in nucleus | **Neutrons** (0): in nucleus | **Electrons** (−): shells around nucleus
-- Atomic number = number of protons = defines element
-- Valence electrons (outermost shell) → determine chemical behavior
+## Atoms: The Fundamental Units of Matter
+- An **atom** is the smallest particle that retains the chemical properties of an element.
+- **Protons (+)** and **Neutrons (0)** are located in the nucleus, while **Electrons (-)** occupy shells around the nucleus.
+- The **Atomic Number** is defined by the number of protons and identifies the element.
+- **Valence electrons** (those in the outermost shell) determine the chemical behavior and bonding of the atom.
 
 ---
 
-## 📌 Elements, Compounds & Molecules
+## Elements, Compounds, and Molecules
 
 | Form | Definition | Example |
 |------|-----------|---------|
-| **Element** | Pure substance of one kind of atom | Si, Cu, Au, Ag |
-| **Compound** | 2+ elements chemically combined (fixed ratio) → new properties | SiO₂ |
-| **Molecule** | Atoms bonded together | O₂, H₂O |
+| **Element** | A pure substance consisting of only one kind of atom. | Silicon (Si), Copper (Cu), Gold (Au) |
+| **Compound** | Two or more elements chemically combined in a fixed ratio, resulting in new properties. | Silicon Dioxide (SiO2) |
+| **Molecule** | A group of atoms bonded together. | Oxygen (O2), Water (H2O) |
 
-**Tech-important**: Si (chips), Cu (wires), Au/Ag (contacts), SiO₂ (insulation)
+- **Critical Materials in Technology**: Silicon (chips), Copper (wiring), Gold and Silver (electrical contacts), and Silicon Dioxide (insulation).
 
 ---
 
-## 📌 Chemical Bonding
+## Chemical Bonding
 
-| Bond Type | Mechanism | Example | Conductivity |
+| Bond Type | Mechanism | Example | Electrical Behavior |
 |-----------|-----------|---------|-------------|
-| **Ionic** | Electron transfer | NaCl | Insulator |
-| **Covalent** | Electron sharing | H₂O, Si | Semiconductor |
-| **Metallic** | Free electron movement | Fe, Cu | Conductor |
+| **Ionic** | Complete transfer of electrons. | Sodium Chloride (NaCl) | Insulator |
+| **Covalent** | Sharing of electrons between atoms. | Water (H2O), Silicon (Si) | Semiconductor |
+| **Metallic** | Free movement of delocalized electrons. | Iron (Fe), Copper (Cu) | Conductor |
 
-### Why Covalent Bonds Matter
-- Strong, stable; electrons shared but not completely free
-- Creates balance between conductivity and insulation
-- Si crystal: each atom forms **4 covalent bonds** → controlled conductivity
-
----
-
-## 📌 Chemical Reactivity & Reactions
-
-| Reaction | Definition | Example |
-|----------|-----------|---------|
-| **Oxidation** | Loss of electrons / gain of O₂ | Iron rusting |
-| **Reduction** | Gain of electrons / loss of O₂ | Cu extraction |
-| **Redox** | Both occur together | Zn + CuSO₄ → ZnSO₄ + Cu |
-
-### Key Formulas
-- **Rusting**: 4Fe + 3O₂ + 6H₂O → Fe₂O₃·xH₂O
-- **Cu extraction**: 2CuO + C → 2Cu + CO₂
-- **Displacement**: Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)
-
-### Gold stays shiny: Noble metal → resists oxidation → used in electronic connectors
-### Corrosion prevention: Galvanization (zinc coating on iron)
+### The Importance of Covalent Bonds
+- Covalent bonds are strong and stable; electrons are shared but not completely free.
+- This creates a balance between conductivity and insulation.
+- In a Silicon crystal, each atom forms **four covalent bonds**, allowing for controlled conductivity through doping and temperature management.
 
 ---
 
-## 📌 Periodic Table & Electron Configuration
+## Chemical Reactivity and Reactions
+
+| Reaction Type | Definition | Example |
+|---------------|------------|---------|
+| **Oxidation** | The loss of electrons or gain of oxygen. | Iron rusting |
+| **Reduction** | The gain of electrons or loss of oxygen. | Copper extraction |
+| **Redox** | A reaction where both oxidation and reduction occur simultaneously. | Zn + CuSO4 → ZnSO4 + Cu |
+
+### Key Chemical Formulas
+- **Rusting**: 4Fe + 3O2 + 6H2O → Fe2O3·xH2O
+- **Copper Extraction**: 2CuO + C → 2Cu + CO2
+- **Displacement**: Zn(s) + CuSO4(aq) → ZnSO4(aq) + Cu(s)
+
+### Practical Applications
+- **Gold**: As a noble metal, it resists oxidation, making it ideal for high-quality electronic connectors.
+- **Corrosion Prevention**: Galvanization involves coating iron with zinc to prevent oxidation.
+
+---
+
+## The Periodic Table and Electron Configuration
 
 | Trend | Direction | Significance |
 |-------|-----------|-------------|
-| Atomic Size | Increases ↓ | Larger atoms → easier to remove e⁻ |
-| Reactivity (metals) | Increases ↓ | More shells → weaker nuclear hold |
-| Electronegativity | Increases ↑→ | Stronger e⁻ attraction → stronger bonds |
-| Ionization Energy | Decreases ↓ | Lower IE → easier conduction |
+| **Atomic Size** | Increases downwards | Larger atoms have electrons that are easier to remove. |
+| **Metallic Reactivity** | Increases downwards | More electron shells result in a weaker nuclear hold on valence electrons. |
+| **Electronegativity** | Increases upwards and to the right | Stronger attraction for electrons leads to stronger chemical bonds. |
+| **Ionization Energy** | Decreases downwards | Lower ionization energy facilitates electrical conduction. |
 
-- **Metals**: Low IE + Low electronegativity → good conductors
-- **Non-metals**: High electronegativity → insulators
-
----
-
-## 🧠 Quick Revision
-- Atoms: protons(+) + neutrons(0) + electrons(−)
-- 3 bond types: Ionic(transfer) | Covalent(share) | Metallic(free e⁻)
-- Oxidation = lose e⁻; Reduction = gain e⁻
-- Periodic trends guide material selection`,
-  },
-  {
-    title: 'Electronic Structure & Bonding',
-    slug: 'electronic-structure-and-bonding',
-    order: 3,
-    content: `# 📘 Electronic Structure & Bonding in Materials
-
-## 📌 Electronic Structure
-- **Electronic structure** = how electrons are distributed around the nucleus
-- Determines interaction with electricity, heat & light
-
-### Atomic Orbitals & Energy Levels
-- **Orbital** = region where electron is most likely found
-- Energy levels like floors: Lower = tightly held; Higher = loosely held
-- Types: **s, p, d, f** (different shapes & capacities)
-
-### Valence Electrons decide:
-- Electrical conductivity | Bond formation | Chemical reactivity
-- Cu conducts → valence e⁻ move easily; Plastic doesn't → e⁻ tightly bound
+- **Metals**: Characterized by low ionization energy and low electronegativity, making them excellent conductors.
+- **Non-metals**: Possess high electronegativity, acting as insulators.
 
 ---
 
-## 📌 Types of Chemical Bonding
+## Summary and Revision
+- Atoms consist of protons, neutrons, and electrons.
+- The three primary bond types are Ionic (electron transfer), Covalent (electron sharing), and Metallic (free electrons).
+- Oxidation involves losing electrons, while reduction involves gaining them.
+- Periodic trends are used to guide the selection of materials for specific technological applications.`,
+    },
+    {
+      title: 'Electronic Structure & Bonding',
+      slug: 'electronic-structure-and-bonding',
+      order: 3,
+      content: `# Electronic Structure and Bonding in Materials
+
+## Electronic Structure
+- **Electronic structure** refers to the distribution of electrons around an atom's nucleus.
+- It determines how a material interacts with electricity, heat, and light.
+
+### Atomic Orbitals and Energy Levels
+- An **orbital** is a region in space where an electron is most likely to be found.
+- Energy levels are hierarchical: electrons in lower levels are tightly held, while those in higher levels are loosely held.
+- Orbitals are classified into types: **s, p, d, and f**, each with unique shapes and electron capacities.
+
+### The Role of Valence Electrons
+- Valence electrons determine electrical conductivity, bond formation, and chemical reactivity.
+- For example, copper conducts electricity because its valence electrons move easily, whereas plastic is an insulator because its electrons are tightly bound.
+
+---
+
+## Types of Chemical Bonding
 
 ### 1. Ionic Bonding
-- Complete transfer of electron(s) → cations(+) and anions(−)
-- Strong electrostatic attraction → rigid crystal → **insulating behavior**
-- Example: NaCl
+- Involves the complete transfer of electrons, resulting in the formation of cations (+) and anions (-).
+- The strong electrostatic attraction leads to a rigid crystal structure.
+- Electrons are strongly localized, resulting in **insulating behavior**.
+- **Example**: Sodium Chloride (NaCl).
 
 ### 2. Covalent Bonding
-- Atoms **share electrons** → directional bonds → defined angles
-- Balance between conductivity and insulation → semiconductor behavior
-- Example: Si crystal (4 covalent bonds per atom)
+- Atoms **share electrons** in directional bonds with defined angles.
+- This sharing creates a balance between conductivity and insulation, which is the basis for semiconductor behavior.
+- **Example**: Silicon crystal (each atom forms four covalent bonds).
 
 ### 3. Metallic Bonding
-- Positive ions + **sea of delocalized electrons** → non-directional
-- Free movement → excellent conductors of electricity & heat
-- Example: Cu, Al (wiring, interconnects)
+- Consists of positive ions surrounded by a **sea of delocalized electrons**.
+- The non-directional nature of these bonds allows for free electron movement, making metals excellent conductors of electricity and heat.
+- **Example**: Copper (Cu) and Aluminum (Al).
 
 ---
 
-## 📌 Band Theory of Solids
+## Band Theory of Solids
 
+### Key Energy Bands
 | Band | Description |
 |------|------------|
-| **Valence Band** | Occupied by electrons at 0K; involved in bonding |
-| **Conduction Band** | Electrons free to move → conduction |
-| **Band Gap (Eg)** | Energy difference VB→CB; min energy for e⁻ to jump |
+| **Valence Band** | The highest range of electron energies in which electrons are normally present at absolute zero. |
+| **Conduction Band** | The range of electron energies high enough to allow electrons to move freely through the material. |
+| **Band Gap (Eg)** | The energy difference between the valence band and the conduction band; it represents the minimum energy required for an electron to jump to the conduction band. |
 
-### Classification
-| Material | Band Gap | Examples |
-|----------|----------|----------|
-| **Conductor** | 0 (overlap) | Cu, Ag |
-| **Semiconductor** | Small (~1 eV) | Si, Ge |
-| **Insulator** | Large (>3 eV) | Glass, Rubber |
-
----
-
-## 📌 Why Silicon Is Ideal for Microchips
-- Moderate band gap (~1.1 eV) → controllable
-- Conductivity tuned via **doping**
-- Abundant and cost-effective
-- SiO₂ forms natural insulating layer
-- Perfect for **transistors** (ON-OFF switches)
+### Classification of Materials
+| Material Type | Band Gap | Behavior | Examples |
+|---------------|----------|----------|----------|
+| **Conductor** | 0 (Bands overlap) | Free flow of electrons | Copper, Silver |
+| **Semiconductor** | Small (~1 eV) | Controlled conductivity | Silicon, Germanium |
+| **Insulator** | Large (>3 eV) | Electron flow is blocked | Glass, Rubber |
 
 ---
 
-## 🧠 Quick Revision
-- Electronic structure controls all material properties
-- Ionic = insulator | Covalent = semiconductor | Metallic = conductor
-- Band Theory: VB → Band Gap → CB
-- Si ideal: 1.1 eV gap, dopable, abundant, forms SiO₂`,
-  },
-  {
-    title: 'Chemical Properties of Metals & Semiconductors',
-    slug: 'chemical-properties-metals-semiconductors',
-    order: 4,
-    content: `# 📘 Chemical Properties of Metals, Semiconductors & Insulators
+## Why Silicon Is Ideal for Microchips
+- **Controllable Band Gap**: Silicon has a moderate band gap (~1.1 eV) that allows its conductivity to be precisely tuned.
+- **Doping**: Its electrical properties can be modified by adding small amounts of impurities.
+- **Abundance**: Silicon is highly abundant and cost-effective.
+- **Stable Oxide**: It forms Silicon Dioxide (SiO2), a natural and highly effective insulating layer.
+- **Transistor Logic**: These properties make it perfect for creating transistors, which serve as the fundamental ON-OFF switches in computing.
 
-## 📌 Metal Reactivity
-- **Reactivity** = how readily a metal undergoes chemical reactions
-- Determined by **ease of losing electrons**
+---
 
-### Reactivity Series
-**Most → Least Reactive**: K > Na > Ca > Mg > Al > Zn > Fe > Pb > Cu > Ag > Au > Pt
+## Summary and Revision
+- Electronic structure is the primary controller of material properties.
+- Material behavior is classified by bond type: Ionic (insulator), Covalent (semiconductor), and Metallic (conductor).
+- Band Theory describes material behavior based on the Valence Band, Band Gap, and Conduction Band.
+- Silicon's 1.1 eV band gap and its ability to be doped and oxidized make it the industry standard for computing.`,
+    },
+    {
+      title: 'Chemical Properties of Metals & Semiconductors',
+      slug: 'chemical-properties-metals-semiconductors',
+      order: 4,
+      content: `# Chemical Properties of Metals, Semiconductors, and Insulators
+
+## Metal Reactivity
+- **Reactivity** is a measure of how readily a metal undergoes chemical reactions.
+- It is primarily determined by the **ease with which a metal loses electrons**.
+- Factors influencing reactivity include atomic size, nuclear attraction, the number of electron shells, and ionization energy.
+
+### The Reactivity Series
+The reactivity of metals from most to least reactive:
+**K > Na > Ca > Mg > Al > Zn > Fe > Pb > Cu > Ag > Au > Pt**
 
 | Category | Metals | Behavior |
 |----------|--------|----------|
-| **Highly Reactive** | K, Na, Ca, Mg | React with water/acids; stored under oil |
-| **Moderately Reactive** | Al, Zn, Fe, Pb | React with acids; need heating; found as ores |
-| **Least Reactive** | Cu, Ag, Au, Pt | Very stable; found free; don't corrode |
+| **Highly Reactive** | K, Na, Ca, Mg | React vigorously with water and acids; must be stored under oil. |
+| **Moderately Reactive** | Al, Zn, Fe, Pb | React with acids and require heating to react with water; found as ores in nature. |
+| **Least Reactive** | Cu, Ag, Au, Pt | Highly stable; found in their free elemental form; highly resistant to corrosion. |
 
 ---
 
-## 📌 Energy Changes
+## Energy Changes in Chemical Reactions
 
-### Exothermic — energy RELEASED
-- Temperature increases; spontaneous once started
-- **2Mg + O₂ → 2MgO + heat + light**
-- Examples: rusting (slow), Na+water, combustion
+### Exothermic Reactions (Energy Released)
+- These reactions release energy into the surroundings, typically as heat.
+- The temperature of the surroundings increases, and the reaction is often spontaneous once initiated.
+- **Example**: 2Mg + O2 → 2MgO + Heat + Light.
+- Common examples include rusting and combustion.
 
-### Endothermic — energy ABSORBED
-- Temperature decreases; NOT spontaneous
-- **CaCO₃ →(heat)→ CaO + CO₂**
-- Examples: metal extraction, decomposition
-
----
-
-## 📌 Corrosion & Prevention
-- **Corrosion** = gradual destruction by chemical reactions
-- **Galvanization**: Zinc coating (sacrificial metal)
-- **Alloying**: Stainless steel (Fe+Cr+Ni) — Cr forms oxide film
-- **Surface coatings**: Paint, oil, polymer layers
+### Endothermic Reactions (Energy Absorbed)
+- These reactions absorb energy from the surroundings.
+- The temperature of the surroundings decreases, and the reaction is typically not spontaneous.
+- **Example**: CaCO3 → (Heat) → CaO + CO2.
+- Common examples include the extraction of metals from their ores.
 
 ---
 
-## 📌 Semiconductor Doping (VERY IMPORTANT)
-- Intentional introduction of impurity atoms into pure semiconductor
-
-| Type | Dopant | Effect | Carriers |
-|------|--------|--------|----------|
-| **n-type** | 5 valence e⁻ (Phosphorus) | Extra free electrons | Electrons (−) |
-| **p-type** | 3 valence e⁻ (Boron) | Creates holes | Holes (+) |
-
-- **p-n junctions** = basic building blocks of transistors, diodes, ICs
+## Corrosion and its Prevention
+- **Corrosion** is the gradual destruction of materials (usually metals) by chemical or electrochemical reactions with their environment.
+- **Prevention Methods**:
+  - **Galvanization**: Coating a metal (like iron) with a sacrificial layer of Zinc.
+  - **Alloying**: Creating mixtures like Stainless Steel (Iron + Chromium + Nickel), where Chromium forms a protective oxide film.
+  - **Surface Coatings**: Applying paint, oil, or polymer layers to block contact with oxygen and moisture.
 
 ---
 
-## 📌 Insulators
-- Very low conductivity; tightly bound electrons; chemically stable
-- Prevent short circuits; separate conducting regions in ICs
-- SiO₂ = critical barrier in ICs
+## Semiconductor Doping
+- **Doping** is the intentional introduction of impurity atoms into a pure semiconductor to modify its electrical properties.
+- This process increases the number of charge carriers without altering the crystal structure.
+
+| Doping Type | Dopant | Effect | Primary Carriers |
+|-------------|--------|--------|------------------|
+| **n-type** | 5 valence electrons (e.g., Phosphorus) | Introduces extra free electrons. | Electrons (-) |
+| **p-type** | 3 valence electrons (e.g., Boron) | Creates "holes" (missing electrons). | Holes (+) |
+
+- **p-n Junctions**: The interface between p-type and n-type materials is the fundamental building block of transistors, diodes, and integrated circuits.
 
 ---
 
-## 🧠 Quick Revision
-- Reactivity series: K>Na>Ca>Mg>Al>Zn>Fe>Cu>Ag>Au
-- Exothermic = releases energy; Endothermic = absorbs
-- Corrosion prevented by: galvanization, alloying, coatings
-- n-type = extra e⁻ (P); p-type = holes (B)
-- p-n junction → transistors → modern computing`,
-  },
-  {
-    title: 'Materials for Information Storage & Processing',
-    slug: 'materials-information-storage-processing',
-    order: 5,
-    content: `# 📘 Materials Behind Information Storage & Processing
-
-## 📌 Storage Technologies
-
-### Magnetic Storage (HDD)
-- Data via **magnetic orientation** of tiny regions (Fe, Co, Pt alloys)
-- Binary: magnetic direction = 0 or 1
-- Limitation: mechanical movement → speed limited
-
-### Solid-State Storage (SSD)
-- **No moving parts** → faster, quieter, energy-efficient
-- Silicon-based; charge trapped in transistors
-- Materials: Si, Polysilicon, Hafnium/Tantalum oxides
-
-### Optical Storage (CD/DVD)
-- Laser reads/writes on polycarbonate disc + reflective metal (Al, Ag, Au)
-- Data = microscopic pits and lands
-
-### DNA Storage (Emerging)
-- 4 bases (A, T, C, G) encode data; extreme density; stable for millennia
-- Limitations: high cost, slow read/write
+## Insulators
+- Insulators have very low conductivity due to their tightly bound electrons.
+- They are chemically stable and have high electrical resistance.
+- Their primary role is to prevent short circuits and separate conducting regions.
+- In integrated circuits, **Silicon Dioxide (SiO2)** acts as a critical barrier between metal interconnects.
 
 ---
 
-## 📌 Processing Materials
+## Summary and Revision
+- The reactivity series ranks metals by their ease of losing electrons (K to Au).
+- Exothermic reactions release energy, while endothermic reactions absorb it.
+- Corrosion can be prevented through galvanization, alloying, and protective coatings.
+- Doping creates n-type (extra electrons) or p-type (extra holes) semiconductors.
+- p-n junctions are the foundation of modern computing hardware.`,
+    },
+    {
+      title: 'Materials for Information Storage & Processing',
+      slug: 'materials-information-storage-processing',
+      order: 5,
+      content: `# Materials for Information Storage and Processing
 
-### 1. Silicon & Transistors
-- Transistor = fundamental processing unit (ON-OFF switch)
-- Si ideal: conductor+insulator, dopable, forms SiO₂
+## Information Storage Technologies
 
-### 2. Beyond Silicon
-- **Graphene**: single carbon layer → ultra-high conductivity
-- **Carbon nanotubes**: cylindrical graphene → strength + speed
-- Benefits: faster transport, lower power, smaller dimensions
+### Magnetic Storage (Hard Disk Drives - HDD)
+- Data is stored by altering the **magnetic orientation** of tiny regions on a disk.
+- Disks are coated with magnetic alloys containing elements like Iron (Fe), Cobalt (Co), and Platinum (Pt).
+- The binary system uses magnetic direction to represent 0 and 1.
+- **Limitation**: The reliance on mechanical movement limits access speeds compared to solid-state alternatives.
+
+### Solid-State Storage (Solid State Drives - SSD)
+- SSDs have **no moving parts**, making them faster, quieter, and more energy-efficient.
+- They are based on semiconductor technology where electrical charge is trapped in transistors.
+- **Key Materials**: Silicon, Polysilicon (for floating gates), and Hafnium or Tantalum oxides.
+
+### Optical Storage (CD/DVD/Blu-ray)
+- A laser is used to read and write data on a polycarbonate disc.
+- The disc features a reflective metal layer (Aluminum, Silver, or Gold).
+- Data is represented by microscopic "pits" and "lands" on the surface.
+
+### DNA Data Storage (Emerging Technology)
+- Uses the four genetic bases (A, T, C, G) to encode digital information.
+- Offers extreme data density and can remain stable for thousands of years.
+- **Current Limitations**: Very high cost and slow read/write speeds.
+
+---
+
+## Information Processing Materials
+
+### 1. Silicon and Transistors
+- The **transistor** is the fundamental unit of processing, acting as an electronic ON-OFF switch.
+- Silicon is ideal because it can act as both a conductor and an insulator, is easily doped, and forms a stable oxide (SiO2).
+- It is the primary material for microprocessors, memory chips, and integrated circuits.
+
+### 2. Alternatives to Silicon
+- **Graphene**: A single layer of carbon atoms that offers ultra-high electron mobility and thermal conductivity.
+- **Carbon Nanotubes**: Cylindrical structures of graphene that provide exceptional strength and electrical speed.
+- **Benefits**: These materials promise faster electron transport, lower power consumption, and further miniaturization.
 
 ### 3. Superconductors
-- Zero electrical resistance (Niobium, YBCO, MgB₂)
-- Applications: quantum computing, high-speed processing
-- Limitation: extremely low temperatures
+- Materials that exhibit zero electrical resistance when cooled below a critical temperature.
+- **Common Materials**: Niobium, YBCO, and Magnesium Diboride (MgB2).
+- **Applications**: Essential for quantum computing and ultra-high-speed processing.
+- **Limitation**: Requires extremely low temperatures to function.
 
 ---
 
-## 📌 Emerging Trends
+## Emerging Trends in Computing Materials
 
 | Trend | Key Feature |
 |-------|-------------|
-| **Neuromorphic Computing** | Memristors that remember past states |
-| **3D Integrated Circuits** | Vertically stacked → reduced signal distance |
-| **Spintronics** | Electron **spin** instead of charge → faster memory |
-| **Sustainable Computing** | Biodegradable, recyclable semiconductors |
+| **Neuromorphic Computing** | Uses memristors that "remember" past electrical states, mimicking the human brain's synapses. |
+| **3D Integrated Circuits** | Vertically stacked chips that reduce signal travel distance and increase density. |
+| **Spintronics** | Utilizes the **spin** of electrons rather than their charge to store and process data, leading to faster, non-volatile memory. |
+| **Sustainable Computing** | Development of biodegradable and easily recyclable semiconductor materials. |
+
+---
+
+## Summary and Revision
+- **Storage**: HDDs use magnetic alloys; SSDs use silicon and specialized oxides.
+- **Optical & DNA**: Polycarbonate and reflective metals are used for discs, while genetic bases are the future of high-density storage.
+- **Processing**: Silicon remains the standard due to its versatile properties and SiO2 layer.
+- **Next-Gen**: Graphene, carbon nanotubes, and superconductors are poised to overcome silicon's physical limits.
+- **Future Paradigms**: Neuromorphic computing, Spintronics, and 3D ICs are defining the next era of hardware.`,
+    },
+able Computing** | Biodegradable, recyclable semiconductors |
 
 ---
 
