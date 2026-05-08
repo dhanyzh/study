@@ -9,6 +9,7 @@ import { chatWithAI } from '@/lib/ai';
 import { authenticateRequest } from '@/lib/auth';
 
 export async function POST(request) {
+  console.log('[AI Chat] Received request...');
   try {
     const payload = authenticateRequest(request);
     if (!payload) {

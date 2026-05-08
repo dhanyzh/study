@@ -21,8 +21,8 @@ import path from 'path';
 let genAI = null;
 let openaiClient = null;
 
-const GEMINI_MODELS = ['gemini-2.0-flash'];
-const OPENAI_MODELS = ['gpt-4o-mini'];
+const GEMINI_MODELS = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro'];
+const OPENAI_MODELS = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
 
 function readEnvKey(keyName) {
   try {
@@ -162,6 +162,7 @@ async function tryGemini(message, context, history, strict, modelName = GEMINI_M
   if (!ai) return null;
 
   try {
+    console.log(`[AI] Attempting Gemini model: ${modelName}...`);
     const model = ai.getGenerativeModel({
       model: modelName,
       systemInstruction: SYSTEM_PROMPT_TEMPLATE(context),
@@ -172,13 +173,13 @@ async function tryGemini(message, context, history, strict, modelName = GEMINI_M
       parts: [{ text: msg.content }]
     }));
 
-    // Add a hard timeout to prevent the SDK from honoring retryDelay (57+ seconds)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s max
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s max
 
     const chat = model.startChat({ history: chatHistory });
     const result = await chat.sendMessage(message, { signal: controller.signal });
     clearTimeout(timeoutId);
+    console.log(`[AI] Gemini ${modelName} successful.`);
     return result.response.text();
   } catch (error) {
     const errMsg = error?.message || String(error);

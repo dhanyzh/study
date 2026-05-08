@@ -79,10 +79,15 @@ export default function AIPanel({ context }) {
         )}
         
         {messages.map((msg, i) => (
-          <div key={i} className={`ai-message ${msg.role}`}>
-            {msg.role === 'assistant' && <div style={{ fontSize: '0.7rem', opacity: 0.7, marginBottom: '4px', fontWeight: 'bold' }}>StudyBot</div>}
+          <div key={i} className={`ai-message ${msg.role}`} style={{ alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
+            {msg.role === 'assistant' && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                <span style={{ fontSize: '0.9rem' }}>✨</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-light)' }}>StudyBot</span>
+              </div>
+            )}
             
-            <div className="markdown-body">
+            <div className="markdown-body" style={{ fontSize: '0.88rem' }}>
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeKatex]}
@@ -93,11 +98,13 @@ export default function AIPanel({ context }) {
                       return <Mermaid chart={String(children).replace(/\n$/, '')} />;
                     }
                     return !inline ? (
-                      <span style={{ display: 'block', background: '#1e1e2e', padding: '12px', borderRadius: '6px', overflowX: 'auto', marginTop: '8px', marginBottom: '8px' }}>
-                        <code className={className} {...props}>{children}</code>
-                      </span>
+                      <div style={{ position: 'relative', marginTop: 10, marginBottom: 10 }}>
+                        <span style={{ display: 'block', background: '#1e1e2e', padding: '16px', borderRadius: '8px', overflowX: 'auto', border: '1px solid rgba(255,255,255,0.05)' }}>
+                          <code className={className} {...props} style={{ fontSize: '0.8rem', fontFamily: 'Fira Code, monospace' }}>{children}</code>
+                        </span>
+                      </div>
                     ) : (
-                      <code style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 4px', borderRadius: '4px', fontSize: '0.85em' }} className={className} {...props}>
+                      <code style={{ background: 'rgba(108, 99, 255, 0.1)', color: 'var(--accent-light)', padding: '2px 6px', borderRadius: '4px', fontSize: '0.9em', fontWeight: 600 }} className={className} {...props}>
                         {children}
                       </code>
                     )
@@ -107,13 +114,16 @@ export default function AIPanel({ context }) {
                 {msg.content}
               </ReactMarkdown>
             </div>
-            
           </div>
         ))}
         
         {isLoading && (
-          <div className="ai-message assistant">
-            <div className="spinner" style={{ width: '16px', height: '16px', borderWidth: '2px' }}></div>
+          <div className="ai-message assistant" style={{ alignSelf: 'flex-start', padding: '12px 16px' }}>
+            <div style={{ display: 'flex', gap: 4 }}>
+              <div className="dot-typing"></div>
+              <div className="dot-typing" style={{ animationDelay: '0.2s' }}></div>
+              <div className="dot-typing" style={{ animationDelay: '0.4s' }}></div>
+            </div>
           </div>
         )}
         <div ref={messagesEndRef} />
