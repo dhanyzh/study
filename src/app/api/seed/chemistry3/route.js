@@ -155,7 +155,7 @@ export async function POST() {
           slug: 'chemistry',
           icon: '🧪',
           color: '#4ECDC4',
-          description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures',
+          description: 'Organic, Inorganic & Physical Chemistry - Reactions, bonding, and molecular structures',
           order: 2,
         },
       },

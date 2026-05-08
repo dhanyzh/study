@@ -153,7 +153,7 @@ const TOPIC_NOTES = [
 - **Paramagnetic**: Weakly attracted to magnets.
 - **Diamagnetic**: Slightly repelled by magnets.
 
-### Nanomaterials (1–100 nm)
+### Nanomaterials (1-100 nm)
 - These materials exhibit unique properties that differ from their bulk counterparts.
 - They have a high surface-to-volume ratio and are influenced by quantum effects.
 - **Graphene**: Offers exceptional conductivity and is a key material for future computing technologies.
@@ -483,7 +483,7 @@ async function seed() {
         slug: 'chemistry',
         icon: '🧪',
         color: '#4ECDC4',
-        description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures',
+        description: 'Organic, Inorganic & Physical Chemistry - Reactions, bonding, and molecular structures',
         order: 2,
       },
     },

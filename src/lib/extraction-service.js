@@ -299,7 +299,16 @@ export function normalizeText(text) {
   return text
     .replace(/\r\n/g, '\n') // Normalize line endings
     .replace(/\t/g, '  ') // Convert tabs to spaces
-    .replace(/  +/g, ' ') // Multiple spaces to single space
+    .replace(/â€“/g, '–') // Fix en-dash artifact
+    .replace(/â€”/g, '—') // Fix em-dash artifact
+    .replace(/â€™/g, "'") // Fix apostrophe artifact
+    .replace(/â€˜/g, "'") // Fix apostrophe artifact
+    .replace(/â€œ/g, '"') // Fix quote artifact
+    .replace(/â€ /g, '"') // Fix quote artifact
+    .replace(/â€¢/g, '•') // Fix bullet artifact
+    .replace(/ï¸ /g, '')   // Fix variation selector artifact
+    .replace(/Â/g, '')     // Fix non-breaking space artifact
+    .replace(/  +/g, ' ')  // Multiple spaces to single space
     .replace(/\n\n\n+/g, '\n\n') // Multiple newlines to double
     .trim();
 }

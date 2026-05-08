@@ -11,35 +11,35 @@ export const SUBJECTS = [
     slug: 'dsa',
     icon: '🧮',
     color: '#6C63FF',
-    description: 'Data Structures & Algorithms — Master problem solving with an integrated code compiler'
+    description: 'Data Structures & Algorithms - Master problem solving with an integrated code compiler'
   },
   {
     name: 'Electronics',
     slug: 'electronics',
     icon: '⚡',
     color: '#FF6B6B',
-    description: 'Digital & Analog Electronics — Circuit analysis, logic design, and signal processing'
+    description: 'Digital & Analog Electronics - Circuit analysis, logic design, and signal processing'
   },
   {
     name: 'Chemistry',
     slug: 'chemistry',
     icon: '🧪',
     color: '#4ECDC4',
-    description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures'
+    description: 'Organic, Inorganic & Physical Chemistry - Reactions, bonding, and molecular structures'
   },
   {
     name: 'SQL',
     slug: 'sql',
     icon: '🗄️',
     color: '#FFE66D',
-    description: 'Structured Query Language — Write and execute SQL queries with a built-in compiler'
+    description: 'Structured Query Language - Write and execute SQL queries with a built-in compiler'
   },
   {
     name: 'Excel',
     slug: 'excel',
     icon: '📊',
     color: '#2ECC71',
-    description: 'Microsoft Excel — Formulas, data analysis, and spreadsheet mastery with live practice'
+    description: 'Microsoft Excel - Formulas, data analysis, and spreadsheet mastery with live practice'
   }
 ];
 

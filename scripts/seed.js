@@ -134,7 +134,7 @@ export const CHAPTERS_DATA = {
     { title: 'Organic Chemistry', slug: 'organic', order: 0, description: 'Carbon compounds and reactions',
       topics: [
         { title: 'Hydrocarbons', slug: 'hydrocarbons', order: 0,
-          notes: '# Hydrocarbons\n\nCompounds made entirely of **carbon** and **hydrogen**.\n\n## Classification\n1. **Alkanes** (CₙH₂ₙ₊₂) — Single bonds only\n2. **Alkenes** (CₙH₂ₙ) — At least one double bond\n3. **Alkynes** (CₙH₂ₙ₋₂) — At least one triple bond\n4. **Aromatic** — Benzene ring structure\n\n## Naming (IUPAC)\n| Carbon | Prefix |\n|--------|--------|\n| 1 | Meth- |\n| 2 | Eth- |\n| 3 | Prop- |\n| 4 | But- |',
+          notes: '# Hydrocarbons\n\nCompounds made entirely of **carbon** and **hydrogen**.\n\n## Classification\n1. **Alkanes** (CₙH₂ₙ₊₂) - Single bonds only\n2. **Alkenes** (CₙH₂ₙ) - At least one double bond\n3. **Alkynes** (CₙH₂ₙ₋₂) - At least one triple bond\n4. **Aromatic** - Benzene ring structure\n\n## Naming (IUPAC)\n| Carbon | Prefix |\n|--------|--------|\n| 1 | Meth- |\n| 2 | Eth- |\n| 3 | Prop- |\n| 4 | But- |',
           quizzes: [
             { question: 'What is the general formula for alkanes?', options: ['CₙH₂ₙ', 'CₙH₂ₙ₊₂', 'CₙH₂ₙ₋₂', 'CₙHₙ'], correctAnswer: 1, explanation: 'Alkanes are saturated hydrocarbons with the formula CₙH₂ₙ₊₂.' },
           ]

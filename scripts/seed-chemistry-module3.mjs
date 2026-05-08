@@ -64,7 +64,7 @@ Chemical synthesis engineered with precision is crucial for computing applicatio
     content: `# Nanostructures and Characterization
 
 ## Nanostructures and Their Properties
-Nanostructures are classified based on the number of dimensions that fall within the nanoscale (1–100 nm):
+Nanostructures are classified based on the number of dimensions that fall within the nanoscale (1-100 nm):
 
 - **0-Dimensional (0D)**: All dimensions are at the nanoscale (e.g., Quantum Dots, metal nanoparticles). These exhibit strong quantum confinement in all directions.
 - **1-Dimensional (1D)**: Two dimensions are at the nanoscale (e.g., Nanowires, Nanotubes). These are primarily used in nanoelectronics and sensors.
@@ -201,7 +201,7 @@ async function seed() {
         slug: 'chemistry',
         icon: '🧪',
         color: '#4ECDC4',
-        description: 'Organic, Inorganic & Physical Chemistry — Reactions, bonding, and molecular structures',
+        description: 'Organic, Inorganic & Physical Chemistry - Reactions, bonding, and molecular structures',
         order: 2,
       },
     },
