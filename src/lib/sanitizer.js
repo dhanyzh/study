@@ -5,16 +5,22 @@ export function sanitizeString(str) {
   if (!str || typeof str !== 'string') return str;
 
   return str
-    .replace(/â€“/g, '–') // Fix en-dash artifact
-    .replace(/â€”/g, '—') // Fix em-dash artifact
-    .replace(/â€™/g, "'") // Fix apostrophe artifact
-    .replace(/â€˜/g, "'") // Fix apostrophe artifact
-    .replace(/â€œ/g, '"') // Fix quote artifact
-    .replace(/â€ /g, '"') // Fix quote artifact
-    .replace(/â€¢/g, '•') // Fix bullet artifact
-    .replace(/ï¸ /g, '')   // Fix variation selector artifact
-    .replace(/Â/g, '')     // Fix non-breaking space artifact
-    .replace(/ðŸ“˜/g, '📖') // Fix common emoji artifacts
+    .replace(/â€“/g, '-')
+    .replace(/â€”/g, '-')
+    .replace(/â€™/g, "'")
+    .replace(/â€˜/g, "'")
+    .replace(/â€œ/g, '"')
+    .replace(/â€ /g, '"')
+    .replace(/â€¢/g, '•')
+    .replace(/ï¸ /g, '')
+    .replace(/Â/g, '')
+    .replace(/â†'/g, '->')
+    .replace(/â†’/g, '->')
+    .replace(/â†/g, '->') // Prefix catch-all
+    .replace(/eâ»/g, 'e-')
+    .replace(/e⁻/g, 'e-')
+    .replace(/eâ/g, 'e-') // Prefix catch-all
+    .replace(/ðŸ“˜/g, '📖')
     .replace(/ðŸ’¡/g, '💡')
     .replace(/ðŸš€/g, '🚀')
     .replace(/ðŸ” /g, '🔍')
@@ -23,11 +29,6 @@ export function sanitizeString(str) {
     .replace(/ðŸ”¹/g, '🔹')
     .replace(/ðŸ§ /g, '🧠')
     .replace(/ðŸ§¬/g, '🧪')
-    .replace(/â†'/g, '->')
-    .replace(/â†’/g, '->')
-    .replace(/eâ»/g, 'e-')
-    .replace(/e⁻/g, 'e-')
-    .replace(/Â/g, '')
     .trim();
 }
 
