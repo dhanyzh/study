@@ -5,11 +5,13 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Subject from '@/models/Subject';
+import { sanitizeObject } from '@/lib/sanitizer';
 
 export async function GET() {
   try {
     await dbConnect();
-    const subjects = await Subject.find({}).sort({ order: 1 });
+    const rawSubjects = await Subject.find({}).sort({ order: 1 }).lean();
+    const subjects = sanitizeObject(rawSubjects);
     return NextResponse.json({ subjects });
   } catch (error) {
     console.error('Subjects error:', error);

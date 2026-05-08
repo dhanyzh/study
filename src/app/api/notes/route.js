@@ -9,6 +9,7 @@ import dbConnect from '@/lib/db';
 import Note from '@/models/Note';
 import Topic from '@/models/Topic';
 import { authenticateRequest } from '@/lib/auth';
+import { sanitizeObject } from '@/lib/sanitizer';
 
 export async function GET(request) {
   try {
@@ -33,10 +34,13 @@ export async function GET(request) {
 
     // Get system notes + user notes (user notes require auth but can still be returned for topicId).
     // This endpoint is currently used for public/system notes too, so keep it permissive.
-    const notes = await Note.find(query)
+    const rawNotes = await Note.find(query)
       .populate('topicId', 'title slug chapterId subjectId')
       .sort({ source: 1, createdAt: -1 })
-      .limit(limit);
+      .limit(limit)
+      .lean(); // Use lean for easier transformation
+
+    const notes = sanitizeObject(rawNotes);
     return NextResponse.json({ notes });
   } catch (error) {
     console.error('Notes GET error:', error);

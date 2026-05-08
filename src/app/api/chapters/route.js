@@ -5,6 +5,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Chapter from '@/models/Chapter';
+import { sanitizeObject } from '@/lib/sanitizer';
 
 export async function GET(request) {
   try {
@@ -16,7 +17,8 @@ export async function GET(request) {
       return NextResponse.json({ error: 'subjectId is required.' }, { status: 400 });
     }
 
-    const chapters = await Chapter.find({ subjectId }).sort({ order: 1 });
+    const rawChapters = await Chapter.find({ subjectId }).sort({ order: 1 }).lean();
+    const chapters = sanitizeObject(rawChapters);
     return NextResponse.json({ chapters });
   } catch (error) {
     console.error('Chapters error:', error);
